@@ -22,3 +22,32 @@ Need to create Spring web project for tomcat web server using
 +DEV-008: Create Main controller with get method to show main page DEP-007;+reznik
 
  DEV-009: Change main.jsp to work without any exceptions;
+
+ DEV-010: Create user table with id, login, pass, city, phone, email, ads(varchar) columns;
+
+ DEV-011: Create User ebtity DEP-010;
+
+ DEV-012: Create UserDao with getByLogin, add, edit methods DEP-011;
+
+ DEV-013: Create reg.jsp DEP-012;
+
+ DEV-014: Create RegController with get and post methods DEP-013;
+
+ DEV-015: Add button register on main page DEP-014;
+
+ DEV-016: Create login.jsp DEP-012;
+
+ DEV-017: Create LoginController with get and post methods DEP-016;
+
+ DEV-018: Add button login on main page DEP-017;
+
+ DEV-019: Create editUser.jsp DEP-012;
+
+ DEV-020: Create EditUserController with get and post methods,
+        button on main page for logined users DEP-019;
+
+ DEV-021: Create addAd.jsp DEP-018;
+
+ DEV-022: Create AddAdController with get and post methods DEP-021;
+
+ DEV-023: Add button Add AD to main page for logined users DEP-022;
