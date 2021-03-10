@@ -13,7 +13,7 @@ Need to create Spring web project for tomcat web server using
 +DEV-004: Create ad table with id, name, desc, pic, price, userid,
         city, phone, email, rubric columns;+reznik
 
- DEV-005: Create entity for ad table DEP-004;
++DEV-005: Create entity for ad table DEP-004;+reznik
 
  DEV-006: Create dao for ad table with add, getById, get, getByCategory, edit methods DEP-005;
 
