@@ -15,9 +15,9 @@ Need to create Spring web project for tomcat web server using
 
 +DEV-005: Create entity for ad table DEP-004;+reznik
 
- DEV-006: Create dao for ad table with add, getById, get, getByRubric, getByUserId, edit methods DEP-005;
++DEV-006: Create dao for ad table with add, getById, get, getByRubric, getByUserId, edit methods DEP-005;+reznik
 
- DEV-007: Create jsp main page shows ads DEP-006;
++DEV-007: Create jsp main page shows ads DEP-006;+
 
  DEV-008: Create Main controller with get method to show main page DEP-007;
 
