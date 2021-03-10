@@ -19,13 +19,6 @@ Need to create Spring web project for tomcat web server using
 
 +DEV-007: Create jsp main page shows ads DEP-006;+
 
- DEV-008: Create Main controller with get method to show main page DEP-007;
++DEV-008: Create Main controller with get method to show main page DEP-007;+reznik
 
-
-
-
-
-
-
-
-
+ DEV-009: Change main.jsp to work without any exceptions;
