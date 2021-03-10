@@ -6,18 +6,18 @@ Need to create Spring web project for tomcat web server using
 
 +DEV-001: Create maven project and add all necessary dependencies;+reznik
 
- DEV-002: Add hibernate support;
++DEV-002: Add hibernate support;+reznik
 
  DEV-003: Add spring mvc support;
 
  DEV-004: Create ad table with id, name, description, picture, price, userid,
         city, phone, email, rubric columns;
 
- DEV-005: Create entity for ad table;
+ DEV-005: Create entity for ad table DEP-004;
 
- DEV-006: Create dao for ad table with add, getById, get, getByCategory, edit methods;
+ DEV-006: Create dao for ad table with add, getById, get, getByCategory, edit methods DEP-005;
 
- DEV-007: Create jsp main page shows ads;
+ DEV-007: Create jsp main page shows ads DEP-006;
 
  DEV-008: Create Main controller with get method to show main page;
 
