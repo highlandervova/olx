@@ -8,7 +8,7 @@ Need to create Spring web project for tomcat web server using
 
 +DEV-002: Add hibernate support;+reznik
 
- DEV-003: Add spring mvc support;
++DEV-003: Add spring mvc support;+reznik
 
  DEV-004: Create ad table with id, name, description, picture, price, userid,
         city, phone, email, rubric columns;
