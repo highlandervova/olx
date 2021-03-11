@@ -23,11 +23,11 @@ Need to create Spring web project for tomcat web server using
 
 +DEV-009: Change main.jsp to work without any exceptions; +panarina
 
- DEV-010: Create user table with id, login, pass, city, phone, email, ads(varchar) columns;
+ DEV-010: Create user table with id, login, pass, city, phone, email, ads(varchar) columns; +panarina
 
- DEV-011: Create User ebtity DEP-010;
+ DEV-011: Create User entity DEP-010;+panarina
 
- DEV-012: Create UserDao with getByLogin, add, edit methods DEP-011;
+ DEV-012: Create UserDao with getByLogin, add, edit methods DEP-011;+panarina
 
  DEV-013: Create reg.jsp DEP-012;
 
