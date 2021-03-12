@@ -17,12 +17,7 @@ public class UserDaoImpl implements UserDao {
         return u;
     }
 
-    @Override
-    public void getByLoginUser(String login) { // проверка на существоание - true, если нет user
-        Session s = HibernateUtil.getSession();
-        s.createQuery("FROM User WHERE login=\'" + login + "\'").list().isEmpty();
-        s.close();
-    }
+
 
 
     @Override
