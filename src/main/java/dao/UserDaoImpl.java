@@ -12,7 +12,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getByLogin(String login) {
         Session s = HibernateUtil.getSession();
-        s.beginTransaction();
         User u = (User) s.createQuery("FROM User WHERE login=\'" + login + "\'").uniqueResult();
         s.close();
         return u;
@@ -21,10 +20,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void getByLoginUser(String login) { // проверка на существоание - true, если нет user
         Session s = HibernateUtil.getSession();
-        s.beginTransaction();
         s.createQuery("FROM User WHERE login=\'" + login + "\'").list().isEmpty();
         s.close();
-            }
+    }
 
 
     @Override
@@ -35,7 +33,7 @@ public class UserDaoImpl implements UserDao {
             s.getTransaction().commit();
             s.close();
             return true;
-            }
+    }
 
     @Override
     public boolean updateUser(User u ) {
