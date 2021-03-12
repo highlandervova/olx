@@ -17,3 +17,4 @@ CREATE TABLE public.ad
 
 ALTER TABLE public.ad
     OWNER to postgres;
+
