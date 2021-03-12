@@ -9,6 +9,7 @@ public interface UserDao {
 
     User getByLogin(String login) ;
     boolean add(User u);
-    public boolean updateUser(User u );
+    public boolean updateUser(User u ); //update fields pass,
+    public void getByLoginUser(String login); // check  - true, if not user
 }
 
