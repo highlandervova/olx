@@ -1,20 +1,18 @@
 package data;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user")
+@Table(name = "public.user")
 public class User  implements Serializable{
-
-
         @Id
+        @Column(name = "id")
         private String  id;
         private String  login;
         private String  pass;
@@ -38,13 +36,13 @@ public class User  implements Serializable{
     }
 
 
-    public User update (User u, String pass, String city, String phone, String email ) {
-        u.setPass(pass);
-        u.setCity(city);
-        u.setEmail(email);
-        u.setPhone(phone);
-        return u;
-    }
+//    public User update (User u, String pass, String city, String phone, String email ) {
+//        u.setPass(pass);
+//        u.setCity(city);
+//        u.setEmail(email);
+//        u.setPhone(phone);
+//        return u;
+//    }
 
     public String getId() {
         return id;

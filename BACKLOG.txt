@@ -29,9 +29,9 @@ Need to create Spring web project for tomcat web server using
 
  DEV-012: Create UserDao with getByLogin, add, edit methods DEP-011;+panarina
 
- DEV-013: Create reg.jsp DEP-012;
+ DEV-013: Create reg.jsp DEP-012; +panarina
 
- DEV-014: Create RegController with get and post methods DEP-013;
+ DEV-014: Create RegController with get and post methods DEP-013;+panarina
 
  DEV-015: Add button register on main page DEP-014;
 
