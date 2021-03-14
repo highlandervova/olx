@@ -33,7 +33,7 @@ Need to create Spring web project for tomcat web server using
 
  DEV-014: Create RegController with get and post methods DEP-013;+panarina
 
- DEV-015: Add button register on main page DEP-014;
+ DEV-015: Add button register on main page DEP-014; +panarina
 
  DEV-016: Create login.jsp DEP-012;+panarina
 
@@ -46,7 +46,7 @@ Need to create Spring web project for tomcat web server using
  DEV-020: Create EditUserController with get and post methods,
         button on main page for logined users DEP-019;
 
- DEV-021: Create addAd.jsp DEP-018;
+ +DEV-021: Create addAd.jsp DEP-018;+Bogatskaya
 
  DEV-022: Create AddAdController with get and post methods DEP-021;
 

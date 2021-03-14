@@ -5,7 +5,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type='text/css'>
+
+                .br1{border-radius:35% 0 0 0;}
+                .br2{border-radius:0 35% 0 0;}
+TABLE { border-collapse: collapse;  border-radius:5x;}
+TABLE { border-collapse: collapse; border-radius:35px;}
+TR, TD {border-radius:35px; }
+TD, TH {  padding: 3px;border: 1px solid black;  border-radius:35px; }
+TR, TD first-of-type {  border-top-left-radius:35px; border-bottom-left-radius:45px;  }
+TH {background: #b0e0e6;}
+
+                #bold{
+                    font-weight: bold;
+                }
+
+</style>
+
     <title>${title}</title>
+
 </head>
 <body>
 <center>
@@ -28,8 +46,9 @@
         </tr>
     </c:forEach>
 </table>
-<%--<form action='/demo_war_exploded/add' method='GET'>--%>
-<%--    <input type='submit' value='Add New Car'/>--%>
-<%--</form>--%>
+<br/>
+<form action=${pathMain} method='GET' >
+    <input type='submit' id='bold'   class='buttonEnabled' value='Create new login'/>
+</form>
 </body>
 </html>

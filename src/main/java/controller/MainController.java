@@ -1,6 +1,7 @@
 package controller;
 
 import dao.AdDao;
+import enums.RedirectPath;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ public class MainController {
         ModelAndView out = new ModelAndView("main");
         out.addObject("title", "OLX main page");
         out.addObject("ads", adDao.get());
+        String pathMain = RedirectPath.REG_PAGE.getValue();
+        out.addObject("pathMain", pathMain);
         return out;
     }
 }
