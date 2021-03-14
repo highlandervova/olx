@@ -17,5 +17,9 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/reg</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/editUser</url-pattern>
+    </servlet-mapping>
 
 </web-app>
