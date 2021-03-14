@@ -19,7 +19,15 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
         <url-pattern>/editUser</url-pattern>
     </servlet-mapping>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 
 </web-app>

@@ -19,9 +19,18 @@ public class UserService {
     public void addNewUser(String login, String pass, String city, String phone, String email) {
 
         User u =
-                new User(UUID.randomUUID().toString(), login, pass, city, phone, email,"");
+                new User(UUID.randomUUID().toString(), login, pass, city, phone, email, "");
 
         //return userDao.add(u) ? u : null;
         userDao.add(u);
+    }
+    public User getByLogin(String login) {
+         User u = userDao.getByLogin(login);
+         return u;
+    }
+
+    public boolean checkUserPassword(User u, String pass) {
+
+        return u != null && u.getPass().equals(pass);
     }
 }
