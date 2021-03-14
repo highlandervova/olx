@@ -24,7 +24,7 @@ public class UserService {
         //return userDao.add(u) ? u : null;
         userDao.add(u);
     }
-    public User getByUser(String login) {
+    public User getByLogin(String login) {
          User u = userDao.getByLogin(login);
          return u;
     }

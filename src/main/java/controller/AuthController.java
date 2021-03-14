@@ -72,7 +72,7 @@ public class AuthController {
         String pathResult = RedirectPath.REG_PAGE.getValue();
 
         if (validationService.validateAuthentication(login, pass)) {
-            req.getSession().setAttribute(AUTHENTICATED.getValue(), userService.getByUser(login));
+            req.getSession().setAttribute(AUTHENTICATED.getValue(), userService.getByLogin(login));
             pathResult = RedirectPath.MAIN_PAGE.getValue();
             } else { pathResult = RedirectPath.LOGIN_PAGE.getValue();}
             out2.addObject("pathResult", pathResult);
