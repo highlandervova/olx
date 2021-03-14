@@ -7,9 +7,14 @@ public enum RequestParameter {
     PASS2       ("pass2"),
     CITY        ("city"),
     PHONE       ("phone"),
-    EMAIL       ("email");
+    EMAIL       ("email"),
+    NAME        ("name"),
+    DESCR       ("descr"),
+    PIC         ("pic"),
+    PRICE       ("price"),
+    RUBRIC      ("rubric");
 
-    private RequestParameter(String value) {
+    RequestParameter(String value) {
         this.value = value;
     }
 

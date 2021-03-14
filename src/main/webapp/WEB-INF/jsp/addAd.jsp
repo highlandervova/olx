@@ -11,7 +11,7 @@
 
 <form method='post'>
     <input name="name" type="text" required placeholder="Name">
-    <input name="desc" type="text" required placeholder="Description">
+    <input name="descr" type="text" required placeholder="Description">
     <input name="pic" type="text" required placeholder="Picture">
     <input name="price" type="number" required placeholder="Price">
     <input name="city" type="text" required placeholder="City">

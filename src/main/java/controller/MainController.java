@@ -23,6 +23,8 @@ public class MainController {
         ModelAndView out = new ModelAndView("main");
         out.addObject("title", "OLX main page");
         out.addObject("ads", adDao.get());
+        String adPage = RedirectPath.AD_PAGE.getValue();
+        out.addObject("pathAddAd", adPage);
         String pathMain = RedirectPath.REG_PAGE.getValue();
         out.addObject("pathMain", pathMain);
         return out;

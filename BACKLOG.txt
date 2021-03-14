@@ -48,6 +48,6 @@ Need to create Spring web project for tomcat web server using
 
  +DEV-021: Create addAd.jsp DEP-018;+Bogatskaya
 
- DEV-022: Create AddAdController with get and post methods DEP-021;
+ +DEV-022: Create AddAdController with get and post methods DEP-021;+Bogatskaya
 
- DEV-023: Add button Add AD to main page for logined users DEP-022;
+ +DEV-023: Add button Add AD to main page for logined users DEP-022;+Bogatskaya

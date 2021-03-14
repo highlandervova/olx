@@ -13,7 +13,7 @@ public class Ad implements Serializable {
     @Id
     private String  id;
     private String  name;
-    private String  desc;
+    private String  descr;
     private String  pic;
     private Integer price;
     @Column(name = "userid")
@@ -26,10 +26,10 @@ public class Ad implements Serializable {
     public Ad() {
     }
 
-    public Ad(String id, String name, String desc, String pic, Integer price, String userId, String city, String phone, String email, Integer rubric) {
+    public Ad(String id, String name, String descr, String pic, Integer price, String userId, String city, String phone, String email, Integer rubric) {
         this.id = id;
         this.name = name;
-        this.desc = desc;
+        this.descr = descr;
         this.pic = pic;
         this.price = price;
         this.userId = userId;
@@ -55,12 +55,12 @@ public class Ad implements Serializable {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescr() {
+        return descr;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescr(String desc) {
+        this.descr = desc;
     }
 
     public String getPic() {
@@ -124,7 +124,7 @@ public class Ad implements Serializable {
         return "Ad{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", desc='" + desc + '\'' +
+                ", descr='" + descr + '\'' +
                 ", pic='" + pic + '\'' +
                 ", price=" + price +
                 ", userId='" + userId + '\'' +
@@ -140,11 +140,11 @@ public class Ad implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ad ad = (Ad) o;
-        return Objects.equals(id, ad.id) && Objects.equals(name, ad.name) && Objects.equals(desc, ad.desc) && Objects.equals(pic, ad.pic) && Objects.equals(price, ad.price) && Objects.equals(userId, ad.userId) && Objects.equals(city, ad.city) && Objects.equals(phone, ad.phone) && Objects.equals(email, ad.email) && Objects.equals(rubric, ad.rubric);
+        return Objects.equals(id, ad.id) && Objects.equals(name, ad.name) && Objects.equals(descr, ad.descr) && Objects.equals(pic, ad.pic) && Objects.equals(price, ad.price) && Objects.equals(userId, ad.userId) && Objects.equals(city, ad.city) && Objects.equals(phone, ad.phone) && Objects.equals(email, ad.email) && Objects.equals(rubric, ad.rubric);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, desc, pic, price, userId, city, phone, email, rubric);
+        return Objects.hash(id, name, descr, pic, price, userId, city, phone, email, rubric);
     }
 }

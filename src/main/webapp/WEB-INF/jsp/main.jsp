@@ -30,15 +30,24 @@ TH {background: #b0e0e6;}
     <h1>OLX</h1>
 </center>
 
-<table width = "80%" border = "1" align = "center">
+<table width="80%" border="1" align="center">
 
-    <tr><th>NAME</th><th>RUBRIC</th><th>PRICE</th><th>DESCRIPTION</th><th>PICTURE</th><th>CITY</th><th>PHONE</th><th>EMAIL</th></tr>
+    <tr>
+        <th>NAME</th>
+        <th>RUBRIC</th>
+        <th>PRICE</th>
+        <th>DESCRIPTION</th>
+        <th>PICTURE</th>
+        <th>CITY</th>
+        <th>PHONE</th>
+        <th>EMAIL</th>
+    </tr>
     <c:forEach items="${ads}" var="ad">
         <tr>
-            <td>${ad.getName()}</td>
+            <td>${ad.name}</td>
             <td>${ad.rubric}</td>
             <td><h2>${ad.price}</h2> <h4>USD</h4></td>
-            <td>${ad.desc}</td>
+            <td>${ad.descr}</td>
             <td><img style='width: 100px;' src='${ad.pic}' alt='No Picture'/></td>
             <td>${ad.city}</td>
             <td>${ad.phone}</td>
@@ -50,5 +59,10 @@ TH {background: #b0e0e6;}
 <form action=${pathMain} method='GET' >
     <input type='submit' id='bold'   class='buttonEnabled' value='Create new login'/>
 </form>
+<c:if test="${not empty sessionScope.authenticated}">
+    <form action=${pathAddAd} method='get'>
+        <input type='submit' value='Add Ad'>
+    </form>
+</c:if>
 </body>
 </html>
