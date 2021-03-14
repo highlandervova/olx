@@ -1,9 +1,8 @@
 package controller;
 
 
-import dao.AdDao;
+
 import dao.UserDao;
-import data.User;
 import enums.RedirectPath;
 import enums.RequestParameter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,6 @@ public class RegController {
     public RegController(
             final   UserService userService,
             final UserDao userDao,
-//            @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
             ValidationService validationService
 
     ) {
@@ -42,55 +40,6 @@ public class RegController {
 
 
 
-    /*
-   private final CarrierService carrierService;
-    private final CabinLevelService cabinLevelService;
-    private final CompanyTypeService companyTypeService;
-
-    private final List<DTOCompanyType> companyTypes;
-    private final List<DTOCarrier> carrierLists;
-    private final List<DTOCabinLevel> cabinLevels;
-
-    @Autowired
-    public TicketRuleController(
-            final CarrierService carrierService,
-            final CabinLevelService cabinLevelService,
-            final CompanyTypeService companyTypeService
-        ) {
-        super();
-        this.carrierService = carrierService;
-        this.cabinLevelService = cabinLevelService;
-        this.companyTypeService = companyTypeService;
-        companyTypes = companyTypeService.loadAllCompanyTypes();
-        carrierLists = carrierService.loadAllCarriers();
-        cabinLevels = cabinLevelService.loadAllCabinLevel();
-    }
-   * */
-
-
-//    public RegController(@Autowired UserDao userDao) {
-//        this.userDao = userDao;
-//    }
-
-//    public RegController(UserDao userDao, @Autowired validationService validationService) {
-//        this.userDao = userDao;
-//        this.validationService = validationService;
-//    }
-
-//    @Autowired
-//    public RegController() {
-//        this(UserDao userDao, validationService Val, );
-//    }
-//
-//    @Autowired
-//    public RegController(
-//             UserDao userDao,
-//             validationService validationService,
-//             UserService userService) {
-//        this.userDao = userDao;
-//        this.validationService = validationService;
-//        this.userService = userService;
-//    }
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView regGet(HttpServletRequest req, HttpServletResponse resp) {
@@ -98,8 +47,6 @@ public class RegController {
         out.addObject("title", "reg page");
         String pathMain = RedirectPath.MAIN_PAGE.getValue();
         out.addObject("pathMain", pathMain);
-        //  out.addObject("user", userDao.add());
-
         return out;
     }
 
