@@ -2,7 +2,7 @@ CREATE TABLE public.ad
 (
     id character varying COLLATE pg_catalog."default" NOT NULL,
     name character varying COLLATE pg_catalog."default",
-    "desc" character varying COLLATE pg_catalog."default",
+    descr character varying COLLATE pg_catalog."default",
     pic character varying COLLATE pg_catalog."default",
     price integer,
     userid character varying COLLATE pg_catalog."default",

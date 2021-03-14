@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
+import java.util.UUID;
 
 @Component
 public class AdDaoImpl implements AdDao {
@@ -13,6 +14,7 @@ public class AdDaoImpl implements AdDao {
     public void add(Ad ad) {
         Session s = HibernateUtil.getSession();
         s.beginTransaction();
+        ad.setId(UUID.randomUUID().toString());
         s.save(ad);
         s.getTransaction().commit();
         s.close();
