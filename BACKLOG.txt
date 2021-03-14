@@ -35,11 +35,11 @@ Need to create Spring web project for tomcat web server using
 
  DEV-015: Add button register on main page DEP-014;
 
- DEV-016: Create login.jsp DEP-012;
+ DEV-016: Create login.jsp DEP-012;+panarina
 
- DEV-017: Create LoginController with get and post methods DEP-016;
+ DEV-017: Create LoginController with get and post methods DEP-016;+panarina
 
- DEV-018: Add button login on main page DEP-017;
+ DEV-018: Add button login on main page DEP-017;+panarina
 
  DEV-019: Create editUser.jsp DEP-012;
 

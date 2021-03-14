@@ -19,7 +19,8 @@
     Enter City: &nbsp  <input type='city'  name='city'>
     Enter Phone: <input type='phone' name='phone'>
     Enter Email: <input type='email' name= 'email'>
-    <br/>
+    <br/> <br/>
+
     <input type='submit' value='Register'>
     </form>
 

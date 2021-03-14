@@ -4,6 +4,7 @@ public enum RedirectPath {
 
 
     MAIN_PAGE("/olx_war/main"),
+    LOGIN_PAGE("/olx_war/auth"),
     REG_PAGE("/olx_war/reg");
 
 
