@@ -7,8 +7,8 @@ public enum RedirectPath {
     MAIN_REDIRECT("main"),
     LOGIN_PAGE("/olx_war_exploded/auth"),
     REG_PAGE("/olx_war_exploded/reg"),
-    AD_PAGE("/olx_war_exploded/ad");
-
+    AD_PAGE("/olx_war_exploded/ad"),
+    EDIT_USER("/olx_war_exploded/editUser");
 
     private RedirectPath(String value) {
         this.value = value;

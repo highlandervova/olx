@@ -29,6 +29,8 @@ public class MainController {
         out.addObject("pathReg", pathReg);
         String pathAuth = RedirectPath.LOGIN_PAGE.getValue();
         out.addObject("pathAuth", pathAuth);
+        String editU = RedirectPath.EDIT_USER.getValue();
+        out.addObject("editU", editU);
         return out;
     }
 }
