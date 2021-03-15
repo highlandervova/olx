@@ -70,7 +70,7 @@ public class RegController {
         if (validationService.validateRegistration(login, pass1, pass2)) {
                userService.addNewUser(login, pass1, city, phone, email);
             req.getSession().setAttribute(AUTHENTICATED.getValue(), userService.getByLogin(login));
-            resp.sendRedirect(RedirectPath.MAIN_SHORT.getValue());
+            resp.sendRedirect(RedirectPath.MAIN_REDIRECT.getValue());
             }
 
         return out2;

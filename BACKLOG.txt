@@ -23,31 +23,74 @@ Need to create Spring web project for tomcat web server using
 
 +DEV-009: Change main.jsp to work without any exceptions; +panarina
 
- DEV-010: Create user table with id, login, pass, city, phone, email, ads(varchar) columns; +panarina
++DEV-010: Create user table with id, login, pass, city, phone, email, ads(varchar) columns; +panarina
 
- DEV-011: Create User entity DEP-010;+panarina
++DEV-011: Create User entity DEP-010;+panarina
 
- DEV-012: Create UserDao with getByLogin, add, edit methods DEP-011;+panarina
++DEV-012: Create UserDao with getByLogin, add, edit methods DEP-011;+panarina
 
- DEV-013: Create reg.jsp DEP-012; +panarina
++DEV-013: Create reg.jsp DEP-012; +panarina
 
- DEV-014: Create RegController with get and post methods DEP-013;+panarina
++DEV-014: Create RegController with get and post methods DEP-013;+panarina
 
- DEV-015: Add button register on main page DEP-014; +panarina
++DEV-015: Add button register on main page DEP-014; +panarina
 
- DEV-016: Create login.jsp DEP-012;+panarina
++DEV-016: Create login.jsp DEP-012;+panarina
 
- DEV-017: Create LoginController with get and post methods DEP-016;+panarina
++DEV-017: Create LoginController with get and post methods DEP-016;+panarina
 
- DEV-018: Add button login on main page DEP-017;+panarina
++DEV-018: Add button login on main page DEP-017;+panarina
 
- DEV-019: Create editUser.jsp DEP-012; +volodymyr
++DEV-019: Create editUser.jsp DEP-012; +volodymyr
 
  DEV-020: Create EditUserController with get and post methods,
         button on main page for logined users DEP-019;
 
- +DEV-021: Create addAd.jsp DEP-018;+Bogatskaya
++DEV-021: Create addAd.jsp DEP-018;+Bogatskaya
 
- +DEV-022: Create AddAdController with get and post methods DEP-021;+Bogatskaya
++DEV-022: Create AddAdController with get and post methods DEP-021;+Bogatskaya
 
- +DEV-023: Add button Add AD to main page for logined users DEP-022;+Bogatskaya
++DEV-023: Add button Add AD to main page for logined users DEP-022;+Bogatskaya
+
+ DEV-024: Create city table script with int id, name columns and 1 Kiev, 2 Odessa
+        entries inside;
+
+ DEV-025: Add main Ukrainian cities list into city table DEP-024;
+
+ DEV-026: Create dao method getByCity, service method, main controller logic of
+        get 2 params - searchType and search, main jsp changes to search by city;
+
+ DEV-027: Implement city select instead text input: entity, dao, service, change
+        controllers, change jsps DEP-024;
+
+ DEV-028: Create dao method getByCategory, service method, main controller logic of
+        get 2 params - searchType and search, main jsp changes to search by category;
+
+ DEV-029: Create dao method getByName, service method, main controller logic of
+         get 2 params - searchType and search, main jsp changes to search by name,
+         case insensitive search by part of ad name;
+
+ DEV-030: Add checkbox to search by description too DEP-029;
+
+ DEV-031: Create EditAdController and edit.jsp to edit ads and RemoveAdController to
+        remove an ad;
+
+ DEV-032: Add autofill for city, phone, email fields with user's home city;
+
+ DEV-033: Develop messaging system: message table, dao, service, jsp changes of
+        editAd, main jsps, create message jsp and controller to handle messaging;
+
+ DEV-034: Add column date to ad table and entity, sorting output ad collections by
+        that date;
+
+ DEV-035: Add to top function for ad owners DEP-034;
+
+ DEV-036: Add column favorite to ad table, getByCategoryFavorite, byName and
+        methods, change main.jsp and MainController to show favorites block from 3
+        random favorite ad. Aware to do it in search scenario too;
+
+ DEV-037: Create main controller logic to get param - searchType=myAds, main jsp changes
+        to search user's ads;
+
+ DEV-038: Create rubric table with int id, name columns and change where necessary text
+        fields to selects;

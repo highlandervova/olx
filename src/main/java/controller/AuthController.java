@@ -2,15 +2,12 @@ package controller;
 
 
 import dao.UserDao;
-import data.User;
 import enums.RedirectPath;
 import enums.RequestParameter;
-import enums.Title;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import service.UserService;
 import service.ValidationService;
@@ -22,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static enums.SessionAttribute.AUTHENTICATED;
-import static org.springframework.web.bind.annotation.SessionAttribute.*;
 
 @Controller
 @RequestMapping("auth")
@@ -71,7 +67,7 @@ public class AuthController {
 
         if (validationService.validateAuthentication(login, pass)) {
             req.getSession().setAttribute(AUTHENTICATED.getValue(), userService.getByLogin(login));
-            resp.sendRedirect(RedirectPath.MAIN_SHORT.getValue());
+            resp.sendRedirect(RedirectPath.MAIN_REDIRECT.getValue());
             }
 
         return out2;
