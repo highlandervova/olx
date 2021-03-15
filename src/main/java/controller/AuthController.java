@@ -54,9 +54,7 @@ public class AuthController {
         out.addObject("pathMain", pathMain);
         String pathAuth = RedirectPath.LOGIN_PAGE.getValue();
         out.addObject("pathAuth", pathAuth);
-        // Title.AUTHENTICATION.getValue();
-        //  out.addObject("user", userDao.add());
-
+       
 
         return out;
     }
@@ -69,13 +67,13 @@ public class AuthController {
 
         String login = req.getParameter(RequestParameter.LOGIN.getValue());
         String pass = req.getParameter(RequestParameter.PASS.getValue());
-        String pathResult = RedirectPath.REG_PAGE.getValue();
+        
 
         if (validationService.validateAuthentication(login, pass)) {
             req.getSession().setAttribute(AUTHENTICATED.getValue(), userService.getByLogin(login));
-            pathResult = RedirectPath.MAIN_PAGE.getValue();
-            } else { pathResult = RedirectPath.LOGIN_PAGE.getValue();}
-            out2.addObject("pathResult", pathResult);
+            resp.sendRedirect(RedirectPath.MAIN_SHORT.getValue());
+            }
+
         return out2;
     }
 

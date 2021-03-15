@@ -9,14 +9,18 @@
 
                 .br1{border-radius:35% 0 0 0;}
                 .br2{border-radius:0 35% 0 0;}
-TABLE { border-collapse: collapse;  border-radius:5x;}
-TABLE { border-collapse: collapse; border-radius:35px;}
-TR, TD {border-radius:35px; }
-TD, TH {  padding: 3px;border: 1px solid black;  border-radius:35px; }
+
+TABLE#maintable { border-collapse: collapse; border-radius:35px;}
+TABLE#bottontable TR, TH {border-radius:35px; }
+TABLE#maintable  TH  {  padding: 3px;border: 1px solid black;  border-radius:35px; }
 TR, TD first-of-type {  border-top-left-radius:35px; border-bottom-left-radius:45px;  }
 TH {background: #b0e0e6;}
 
-                #bold{
+                #bold1{
+                    font-weight: bold;
+                }
+
+                #bold2{
                     font-weight: bold;
                 }
 
@@ -30,7 +34,7 @@ TH {background: #b0e0e6;}
     <h1>OLX</h1>
 </center>
 
-<table width="80%" border="1" align="center">
+<table id="maintable" width="80%" border="1" align="center">
 
     <tr>
         <th>NAME</th>
@@ -56,9 +60,23 @@ TH {background: #b0e0e6;}
     </c:forEach>
 </table>
 <br/>
-<form action=${pathMain} method='GET' >
-    <input type='submit' id='bold'   class='buttonEnabled' value='Create new login'/>
-</form>
+<c:if test="${empty sessionScope.authenticated}">
+<table width="80%"  align="center">
+
+    <tr>
+
+        <th><form action=${pathAuth} method='GET' >
+            <input type='submit' id='bold2'   class='buttonEnabled' value='Authorization'/>
+        </form>
+        </th>
+        <th><form action=${pathReg} method='GET' >
+            <input type='submit' id='bold1'   class='buttonEnabled' value='Create new login'/>
+        </form>
+        </th>
+    </tr>
+</table>
+</c:if>
+
 <c:if test="${not empty sessionScope.authenticated}">
     <form action=${pathAddAd} method='get'>
         <input type='submit' value='Add Ad'>
