@@ -41,7 +41,7 @@ Need to create Spring web project for tomcat web server using
 
  DEV-018: Add button login on main page DEP-017;+panarina
 
- DEV-019: Create editUser.jsp DEP-012;
+ DEV-019: Create editUser.jsp DEP-012; +volodymyr
 
  DEV-020: Create EditUserController with get and post methods,
         button on main page for logined users DEP-019;

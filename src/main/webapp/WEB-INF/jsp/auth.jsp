@@ -10,9 +10,7 @@
         #bold0{
             font-weight: bold;
         }
-        #bold1{
-            font-weight: bold;
-        }
+
     </style>
     <title>${title}</title>
     <br/>
@@ -30,8 +28,8 @@
         <input type='submit'  id='bold0'   class='buttonEnabled' value='Authorization'>
     </form>
 
-    <br/>
-    <br/>
+<br/>
+<br/>
 
 </body>
 </html>

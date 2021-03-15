@@ -16,6 +16,10 @@ import service.ValidationService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.io.IOException;
+
+import static enums.SessionAttribute.AUTHENTICATED;
+
 @Controller
 @RequestMapping("reg")
 public class RegController {
@@ -52,7 +56,7 @@ public class RegController {
 
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView postGet(HttpServletRequest req, HttpServletResponse resp) {
+    public ModelAndView postGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ModelAndView out2 = new ModelAndView("reg");
         out2.addObject("title", "reg page");
 
@@ -64,9 +68,11 @@ public class RegController {
         String email = req.getParameter(RequestParameter.EMAIL.getValue());
 
         if (validationService.validateRegistration(login, pass1, pass2)) {
-               userService.addNewUser(login, pass1, city, phone, email);}
-        String pathMain = RedirectPath.MAIN_PAGE.getValue();
-        out2.addObject("pathMain", pathMain);
+               userService.addNewUser(login, pass1, city, phone, email);
+            req.getSession().setAttribute(AUTHENTICATED.getValue(), userService.getByLogin(login));
+            resp.sendRedirect(RedirectPath.MAIN_SHORT.getValue());
+            }
+
         return out2;
     }
 

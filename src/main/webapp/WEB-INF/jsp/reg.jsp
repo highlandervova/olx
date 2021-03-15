@@ -5,12 +5,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style type='text/css'>
+
+        #bold0{
+            font-weight: bold;
+        }
+
+    </style>
     <title>${title}</title>
     <br/>
     <h2>CREATE AN ACCOUNT</h2>
 <br/>
 </head> <body>
-<%--    <form action='/olx_war/reg' method='POST'>--%>
+
     <form  method='POST'>
     Enter Login: <input type='text'     name='login'>
     Enter Pass:  &nbsp <input type='password' name='pass1'>
@@ -21,15 +28,10 @@
     Enter Email: <input type='email' name= 'email'>
     <br/> <br/>
 
-    <input type='submit' value='Register'>
+    <input type='submit'  id="bold0" value='Register'>
     </form>
 
-    <br/>
-    <br/>
 
-    <form action=${pathMain}  method='GET'>
-    <input type='submit' value='To Main Page'>
-    </form>
 
 </body>
 </html>

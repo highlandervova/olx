@@ -25,8 +25,10 @@ public class MainController {
         out.addObject("ads", adDao.get());
         String adPage = RedirectPath.AD_PAGE.getValue();
         out.addObject("pathAddAd", adPage);
-        String pathMain = RedirectPath.REG_PAGE.getValue();
-        out.addObject("pathMain", pathMain);
+        String pathReg = RedirectPath.REG_PAGE.getValue();
+        out.addObject("pathReg", pathReg);
+        String pathAuth = RedirectPath.LOGIN_PAGE.getValue();
+        out.addObject("pathAuth", pathAuth);
         return out;
     }
 }
