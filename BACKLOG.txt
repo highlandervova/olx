@@ -53,9 +53,9 @@ Need to create Spring web project for tomcat web server using
 +DEV-023: Add button Add AD to main page for logined users DEP-022;+Bogatskaya
 
  DEV-024: Create city table script with int id, name columns and 1 Kiev, 2 Odessa
-        entries inside;
+        entries inside; +panarina
 
- DEV-025: Add main Ukrainian cities list into city table DEP-024;
+ DEV-025: Add main Ukrainian cities list into city table DEP-024;+panarina
 
  DEV-026: Create dao method getByCity, service method, main controller logic of
         get 2 params - searchType and search, main jsp changes to search by city;
