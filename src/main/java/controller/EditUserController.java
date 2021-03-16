@@ -4,24 +4,29 @@ import data.User;
 import enums.RedirectPath;
 import enums.RequestParameter;
 import enums.SessionAttribute;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import service.EditUserService;
 import service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("editUser")
 public class EditUserController {
 
     private final UserService userService;
+    private final EditUserService editUserService;
 
-    public EditUserController(UserService userService) {
+    public EditUserController(UserService userService, EditUserService editUserService) {
         this.userService = userService;
+        this.editUserService = editUserService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -32,7 +37,7 @@ public class EditUserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView editUserPost(HttpServletRequest req, HttpServletResponse resp) {
+    public ModelAndView editUserPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ModelAndView out = new ModelAndView("editUser");
         out.addObject("title", "Edit User Account");
         String pathMain = RedirectPath.MAIN_PAGE.getValue();
@@ -44,38 +49,25 @@ public class EditUserController {
         String city = req.getParameter(RequestParameter.CITY.getValue());
         String phone = req.getParameter(RequestParameter.PHONE.getValue());
         String email = req.getParameter(RequestParameter.EMAIL.getValue());
-        int status;
 
         HttpSession session = req.getSession(false);
-        User user = (User) session.getAttribute(SessionAttribute.AUTHENTICATED.getValue());
-        User newUser;
+        if (session != null) {
+            User user = (User) session.getAttribute(SessionAttribute.AUTHENTICATED.getValue());
 
+            User editedUser = new User(user.getId(), login, pass1, city, phone, email, user.getAds());
 
-        if (!pass1.equals("") && pass1.equals(pass2)) {
-            if (!curPass.equals("") && userService.checkUserPassword(user, curPass)) {
-                newUser = new User(user.getId(), login, pass1, city, phone, email, user.getAds());
-                if (userService.updateUser(newUser)) {
-                    req.getSession().setAttribute(SessionAttribute.AUTHENTICATED.getValue(), newUser);
-                    status = 1;
-                    out.addObject("status", status);
-                    return out;
+            int status = editUserService.checkPasswordFields(user, curPass, pass1, pass2);
+            if (editUserService.editUser(user, editedUser, status)) {
+                if (status == 2) {
+                    editedUser.setPass(user.getPass());
                 }
+                req.getSession().setAttribute(SessionAttribute.AUTHENTICATED.getValue(), editedUser);
             }
-            status = -1;
+            out.addObject("status", status);
+            return out;
         } else {
-            status = -2;
+            resp.sendRedirect(RedirectPath.LOGIN_PAGE.getValue());
         }
-        if (pass1.equals("") && pass2.equals("") && curPass.equals("")) {
-            newUser = new User(user.getId(), login, user.getPass(), city, phone, email, user.getAds());
-            if (userService.updateUser(newUser)) {
-                req.getSession().setAttribute(SessionAttribute.AUTHENTICATED.getValue(), newUser);
-                status = 1;
-                out.addObject("status", status);
-                return out;
-            }
-        }
-        out.addObject("status", status);
         return out;
     }
-
 }

@@ -41,4 +41,12 @@ public class UserService {
         }
         return false;
     }
+
+    public boolean updateUserWithPassword(User user){
+        if (user!=null){
+            userDao.updateUserPassword(user);
+            return true;
+        }
+        return false;
+    }
 }

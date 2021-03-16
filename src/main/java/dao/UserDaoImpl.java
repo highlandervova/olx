@@ -34,11 +34,21 @@ public class UserDaoImpl implements UserDao {
     public boolean updateUser(User u ) {
            Session s = HibernateUtil.getSession();
            s.beginTransaction();
-           Query query = s.createQuery("UPDATE User set login=\'"+u.getLogin()+"\', pass=\'" +u.getPass() + "\', city=\'" + u.getCity() + "\', phone=\'"+u.getPhone()+"\', email=\'"+u.getEmail()+"\' WHERE id=\'" + u.getId() + "\'");
+           Query query = s.createQuery("UPDATE User set login=\'"+u.getLogin()+ "\', city=\'" + u.getCity() + "\', phone=\'"+u.getPhone()+"\', email=\'"+u.getEmail()+"\' WHERE id=\'" + u.getId() + "\'");
            query.executeUpdate();
            s.getTransaction().commit();
            s.close();
            return true;
+    }
+    @Override
+    public boolean updateUserPassword(User u ) {
+        Session s = HibernateUtil.getSession();
+        s.beginTransaction();
+        Query query = s.createQuery("UPDATE User set login=\'"+u.getLogin()+"\', pass=\'" +u.getPass() + "\', city=\'" + u.getCity() + "\', phone=\'"+u.getPhone()+"\', email=\'"+u.getEmail()+"\' WHERE id=\'" + u.getId() + "\'");
+        query.executeUpdate();
+        s.getTransaction().commit();
+        s.close();
+        return true;
     }
 }
 

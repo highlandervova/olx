@@ -12,15 +12,15 @@
 <body>
 <form  method='POST'>
     <%User user = (User) session.getAttribute(AUTHENTICATED.getValue());%>
-    Enter Login: <input type='text' required value="<%=user.getLogin()%>" name='login'>
+    Enter Login: <input type='text' required value="<%=user.getLogin()%>" required name='login'>
     Enter current password:  &nbsp <input type='password' name='curPass'>
     <br/> <br/>
     Enter new password: <input type='password' name='pass1'>
     Enter new password again: <input type='password' name='pass2'>
     <br/> <br/>
-    Enter City: &nbsp  <input type='text' value="<%=user.getCity()%>" name='city'>
-    Enter Phone: <input type='text' value="<%=user.getPhone()%>" name='phone'>
-    Enter Email: <input type='text' value="<%=user.getEmail()%>" name= 'email'>
+    Enter City: &nbsp  <input type='text' value="<%=user.getCity()%>" required name='city'>
+    Enter Phone: <input type='text' value="<%=user.getPhone()%>" required name='phone'>
+    Enter Email: <input type='email' value="<%=user.getEmail()%>" required name= 'email'>
     <br/>
     <c:choose>
         <c:when test="${status==-1}">
@@ -29,7 +29,10 @@
         <c:when test="${status==-2}">
             <font color="red">New password fields doesn't match</font>
         </c:when>
-        <c:when test="${status==1}">
+        <c:when test="${status==-3}">
+            <font color="red">Please enter password</font>
+        </c:when>
+        <c:when test="${status==1 || status==2}">
             <font color="#008e00">Changes have been saved!</font>
         </c:when>
     </c:choose>
