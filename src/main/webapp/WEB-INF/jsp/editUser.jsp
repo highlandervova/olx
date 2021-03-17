@@ -1,4 +1,5 @@
 <%@ page import="data.User" %>
+<%@ page import="enums.EditUserStatus" %>
 <%@ page import="static enums.SessionAttribute.AUTHENTICATED" %>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -21,22 +22,9 @@
     Enter City: &nbsp  <input type='text' value="<%=user.getCity()%>" required name='city'>
     Enter Phone: <input type='text' value="<%=user.getPhone()%>" required name='phone'>
     Enter Email: <input type='email' value="<%=user.getEmail()%>" required name= 'email'>
-    <br/>
-    <c:choose>
-        <c:when test="${status==-1}">
-            <font color="red">Current password is incorrect</font>
-        </c:when>
-        <c:when test="${status==-2}">
-            <font color="red">New password fields doesn't match</font>
-        </c:when>
-        <c:when test="${status==-3}">
-            <font color="red">Please enter password</font>
-        </c:when>
-        <c:when test="${status==1 || status==2}">
-            <font color="#008e00">Changes have been saved!</font>
-        </c:when>
-    </c:choose>
-    <br/>
+    <br/> <br/>
+    <c:out value="${status}"/>
+    <br/> <br/>
     <input type='submit' value='Save Changes'>
 </form>
 

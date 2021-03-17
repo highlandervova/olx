@@ -1,6 +1,7 @@
 package controller;
 
 import data.User;
+import enums.EditUserStatus;
 import enums.RedirectPath;
 import enums.RequestParameter;
 import enums.SessionAttribute;
@@ -56,14 +57,14 @@ public class EditUserController {
 
             User editedUser = new User(user.getId(), login, pass1, city, phone, email, user.getAds());
 
-            int status = editUserService.checkPasswordFields(user, curPass, pass1, pass2);
+            EditUserStatus status = editUserService.checkPasswordFields(user, curPass, pass1, pass2);
             if (editUserService.editUser(user, editedUser, status)) {
-                if (status == 2) {
+                if (status.equals(EditUserStatus.CHANGES_SAVED)) { //that's basically hack to update authorized User in session without query to DB
                     editedUser.setPass(user.getPass());
                 }
                 req.getSession().setAttribute(SessionAttribute.AUTHENTICATED.getValue(), editedUser);
             }
-            out.addObject("status", status);
+            out.addObject("status", status.getValue());
             return out;
         } else {
             resp.sendRedirect(RedirectPath.LOGIN_PAGE.getValue());
