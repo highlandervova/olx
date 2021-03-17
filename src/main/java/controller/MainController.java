@@ -1,7 +1,5 @@
 package controller;
 
-import dao.AdDao;
-import data.City;
 import enums.RedirectPath;
 import enums.RequestParameter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +41,7 @@ public class MainController {
         ModelAndView out = new ModelAndView("main");
         out.addObject("title", "OLX main page");
 //        out.addObject("ads", adDao.get());
-        out.addObject("adCity", cityService.getAllCityService());
+        out.addObject("adCity", cityService.getCities());
         String adPage = RedirectPath.AD_PAGE.getValue();
         out.addObject("pathAddAd", adPage);
         String pathReg = RedirectPath.REG_PAGE.getValue();
@@ -52,9 +50,9 @@ public class MainController {
         out.addObject("pathAuth", pathAuth);
         if ( req.getParameter(RequestParameter.TYPE.getValue()) == null )
         {
-            out.addObject("ads", adService.getByAd());
+            out.addObject("ads", adService.getAll());
         } else {
-            out.addObject("ads", adService.getByAdCity( req.getParameter(RequestParameter.TYPE.getValue())));
+            out.addObject("ads", adService.getAdsByCity( req.getParameter(RequestParameter.TYPE.getValue())));
         };
 
              return out;

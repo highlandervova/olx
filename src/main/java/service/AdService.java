@@ -19,12 +19,12 @@ public class AdService {
         return ad;
     }
 
-    public Collection<Ad> getByAdCity(String cityId) {
+    public Collection<Ad> getAdsByCity(String cityId) {
         Collection<Ad> out = adDao.getByCity(cityId);
         return out;
     }
 
-    public Collection<Ad> getByAd() {
+    public Collection<Ad> getAll() {
         Collection<Ad> out = adDao.get();
         return out;
     }

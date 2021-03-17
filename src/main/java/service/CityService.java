@@ -17,14 +17,14 @@ public class CityService {
 
 
 
-    public Collection<City> getAllCityService() {
+    public Collection<City> getCities() {
         Collection<City> out = cityDao.get();
         return out;
     }
 
-        public City getByCityService(String idCity) {
+        public City getById(String cityId) {
 
-       City c = cityDao.getByCity(idCity);
+       City c = cityDao.getByCity(cityId);
         return c;
     }
 
