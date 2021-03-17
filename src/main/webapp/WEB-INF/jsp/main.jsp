@@ -66,11 +66,11 @@ TH {background: #b0e0e6;}
     <tr>
 
         <th><form action=${pathAuth} method='GET' >
-            <input type='submit' id='bold2'   class='buttonEnabled' value='Authorization'/>
+            <input type='submit' id='bold2'   class='buttonEnabled' value='Login'/>
         </form>
         </th>
         <th><form action=${pathReg} method='GET' >
-            <input type='submit' id='bold1'   class='buttonEnabled' value='Create new login'/>
+            <input type='submit' id='bold1'   class='buttonEnabled' value='Register'/>
         </form>
         </th>
     </tr>
@@ -78,9 +78,20 @@ TH {background: #b0e0e6;}
 </c:if>
 
 <c:if test="${not empty sessionScope.authenticated}">
-    <form action=${pathAddAd} method='get'>
-        <input type='submit' value='Add Ad'>
-    </form>
+    <table width="80%"  align="center">
+
+        <tr>
+
+            <th><form action=${pathAddAd} method='GET' >
+                <input type='submit' id='bold2'   class='buttonEnabled' value='Add Ad'/>
+            </form>
+            </th>
+            <th><form action=${editU} method='GET' >
+                <input type='submit' id='bold1'   class='buttonEnabled' value='Edit Account'/>
+            </form>
+            </th>
+        </tr>
+    </table>
 </c:if>
 </body>
 </html>
