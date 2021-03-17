@@ -43,8 +43,8 @@ Need to create Spring web project for tomcat web server using
 
 +DEV-019: Create editUser.jsp DEP-012; +volodymyr
 
- DEV-020: Create EditUserController with get and post methods,
-        button on main page for logined users DEP-019;
++DEV-020: Create EditUserController with get and post methods,
+        button on main page for logined users DEP-019; +volodymyr
 
 +DEV-021: Create addAd.jsp DEP-018;+Bogatskaya
 

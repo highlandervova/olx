@@ -56,7 +56,8 @@ public class MainController {
         } else {
             out.addObject("ads", adService.getAdsByCity( req.getParameter(RequestParameter.TYPE.getValue())));
         };
-
-             return out;
+        String editU = RedirectPath.EDIT_USER.getValue();
+        out.addObject("editU", editU);
+        return out;
     }
 }

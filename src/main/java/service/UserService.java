@@ -33,4 +33,20 @@ public class UserService {
 
         return u != null && u.getPass().equals(pass);
     }
+
+    public boolean updateUser(User user){
+        if (user!=null){
+            userDao.updateUser(user);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updateUserWithPassword(User user){
+        if (user!=null){
+            userDao.updateUserPassword(user);
+            return true;
+        }
+        return false;
+    }
 }
