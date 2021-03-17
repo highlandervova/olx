@@ -26,6 +26,12 @@ TH {background: #b0e0e6;}
                 #bold3{
                     font-weight: bold;
                 }
+                #bold4{
+                    font-weight: bold;
+                }
+                #bold5{
+                    font-weight: bold;
+                }
 
 </style>
 
@@ -96,11 +102,11 @@ TH {background: #b0e0e6;}
         <tr>
 
             <th><form action=${pathAddAd} method='GET' >
-                <input type='submit' id='bold2'   class='buttonEnabled' value='Add Ad'/>
+                <input type='submit' id='bold3'   class='buttonEnabled' value='Add Ad'/>
             </form>
             </th>
             <th><form action=${editU} method='GET' >
-                <input type='submit' id='bold1'   class='buttonEnabled' value='Edit Account'/>
+                <input type='submit' id='bold4'   class='buttonEnabled' value='Edit Account'/>
             </form>
             </th>
         </tr>
@@ -108,7 +114,7 @@ TH {background: #b0e0e6;}
 </c:if>
 <br/>
 <form action=${pathMain} method='GET' >
-    <input type='submit' id='bold3'   class='buttonEnabled' value='Reset All Filters'/>
+    <input type='submit' id='bold5'   class='buttonEnabled' value='Reset All Filters'/>
 </form>
 </body>
 </html>
