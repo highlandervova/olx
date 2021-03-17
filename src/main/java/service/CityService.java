@@ -24,7 +24,7 @@ public class CityService {
 
         public City getById(String cityId) {
 
-       City c = cityDao.getByCity(cityId);
+       City c = cityDao.getById(cityId);
         return c;
     }
 

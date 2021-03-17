@@ -23,6 +23,9 @@ TH {background: #b0e0e6;}
                 #bold2{
                     font-weight: bold;
                 }
+                #bold3{
+                    font-weight: bold;
+                }
 
 </style>
 
@@ -92,5 +95,9 @@ TH {background: #b0e0e6;}
         <input type='submit' value='Add Ad'>
     </form>
 </c:if>
+<br/>
+<form action=${pathMain} method='GET' >
+    <input type='submit' id='bold3'   class='buttonEnabled' value='Reset All Filters'/>
+</form>
 </body>
 </html>

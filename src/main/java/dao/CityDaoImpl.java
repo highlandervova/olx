@@ -22,7 +22,7 @@ public class CityDaoImpl implements CityDao {
     }
 
     @Override
-    public City getByCity(String id) {
+    public City getById(String id) {
         Session s = HibernateUtil.getSession();
         City out =(City) s.createQuery(String.format("FROM City WHERE id=%d", id)).uniqueResult();
         s.close();
