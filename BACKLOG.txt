@@ -64,7 +64,7 @@ Need to create Spring web project for tomcat web server using
           controllers, change jsps DEP-024;
 
  DEV-028: Create dao method getByCategory, service method, main controller logic of
-        get 2 params - searchType and search, main jsp changes to search by category;
+        get 2 params - searchType and search, main jsp changes to search by category DEP-038;
 
  DEV-029: Create dao method getByName, service method, main controller logic of
          get 2 params - searchType and search, main jsp changes to search by name,
@@ -72,13 +72,13 @@ Need to create Spring web project for tomcat web server using
 
  DEV-030: Add checkbox to search by description too DEP-029;
 
- DEV-031: Create EditAdController and edit.jsp to edit ads and RemoveAdController to
-        remove an ad;
++DEV-031: Create EditAdController and editAd.jsp to edit ads and RemoveAdController to
+        remove an ad;+reznik
 
  DEV-032: Add autofill for city, phone, email fields with user's home city;
 
  DEV-033: Develop messaging system: message table, dao, service, jsp changes of
-        editAd, main jsps, create message jsp and controller to handle messaging;
+        editAd, main jsps, create message jsp and controller to handle messaging DEP-031;
 
  DEV-034: Add column date to ad table and entity, sorting output ad collections by
         that date;
@@ -94,3 +94,7 @@ Need to create Spring web project for tomcat web server using
 
  DEV-038: Create rubric table with int id, name columns and change where necessary text
         fields to selects;
+
+ DEV-039: Add button GoToMainPage in ad screen;
+
+ DEV-040: Implement disconnect user on main page using MainController get param exit=true;

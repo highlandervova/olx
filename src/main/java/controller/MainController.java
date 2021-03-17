@@ -50,6 +50,7 @@ public class MainController {
         out.addObject("pathReg", pathReg);
         String pathAuth = RedirectPath.LOGIN_PAGE.getValue();
         out.addObject("pathAuth", pathAuth);
+        out.addObject("pathEdit", RedirectPath.EDIT_AD.getValue());
         if ( req.getParameter(RequestParameter.TYPE.getValue()) == null )
         {
             out.addObject("ads", adService.getAll());

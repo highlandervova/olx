@@ -23,7 +23,7 @@ public class AdDaoImpl implements AdDao {
     @Override
     public Ad getById(String id) {
         Session s = HibernateUtil.getSession();
-        Ad out = (Ad) s.createQuery(String.format("FROM Ad WHERE id='%d", id)).uniqueResult();
+        Ad out = (Ad) s.createQuery("FROM Ad WHERE id='"+id+"'").uniqueResult();
         s.close();
         return out;
     }
@@ -65,6 +65,15 @@ public class AdDaoImpl implements AdDao {
         Session s = HibernateUtil.getSession();
         s.beginTransaction();
         s.update(ad);
+        s.getTransaction().commit();
+        s.close();
+    }
+
+    @Override
+    public void remove(Ad ad) {
+        Session s = HibernateUtil.getSession();
+        s.beginTransaction();
+        s.delete(ad);
         s.getTransaction().commit();
         s.close();
     }

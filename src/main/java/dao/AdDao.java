@@ -12,4 +12,5 @@ public interface AdDao {
     Collection<Ad> getByUserId(String userId);
     Collection<Ad> getByCity(String cityId);
     void edit(Ad ad);
+    void remove(Ad ad);
 }

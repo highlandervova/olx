@@ -57,7 +57,9 @@ TH {background: #b0e0e6;}
     </tr>
     <c:forEach items="${ads}" var="ad">
         <tr>
-            <td>${ad.name}</td>
+            <td>
+                <a href="${pathEdit}?adId=${ad.id}">${ad.name}</a>
+            </td>
             <td>${ad.rubric}</td>
             <td><h2>${ad.price}</h2> <h4>USD</h4></td>
             <td>${ad.descr}</td>

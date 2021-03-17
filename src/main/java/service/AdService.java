@@ -28,4 +28,16 @@ public class AdService {
         Collection<Ad> out = adDao.get();
         return out;
     }
+
+    public Ad getById(String adId) {
+        return adDao.getById(adId);
+    }
+
+    public void update(Ad adToEdit) {
+        adDao.edit(adToEdit);
+    }
+
+    public void remove(Ad ad) {
+        adDao.remove(ad);
+    }
 }
