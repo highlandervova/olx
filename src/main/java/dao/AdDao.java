@@ -10,5 +10,6 @@ public interface AdDao {
     Collection<Ad> get();
     Collection<Ad> getByRubric(Integer rubric);
     Collection<Ad> getByUserId(String userId);
+    Collection<Ad> getByCity(String cityId);
     void edit(Ad ad);
 }

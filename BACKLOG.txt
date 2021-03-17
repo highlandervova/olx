@@ -58,10 +58,10 @@ Need to create Spring web project for tomcat web server using
  DEV-025: Add main Ukrainian cities list into city table DEP-024;+panarina
 
  DEV-026: Create dao method getByCity, service method, main controller logic of
-        get 2 params - searchType and search, main jsp changes to search by city;
+        get 2 params - searchType and search, main jsp changes to search by city;+panarina
 
  DEV-027: Implement city select instead text input: entity, dao, service, change
-        controllers, change jsps DEP-024;
+         controllers, change jsps DEP-024;
 
  DEV-028: Create dao method getByCategory, service method, main controller logic of
         get 2 params - searchType and search, main jsp changes to search by category;

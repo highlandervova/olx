@@ -53,7 +53,17 @@ TH {background: #b0e0e6;}
             <td><h2>${ad.price}</h2> <h4>USD</h4></td>
             <td>${ad.descr}</td>
             <td><img style='width: 100px;' src='${ad.pic}' alt='No Picture'/></td>
-            <td>${ad.city}</td>
+            <td>
+                <a href='main?type=${ad.city}'>
+
+            <c:forEach items="${adCity}" var="city">
+                    <c:choose>
+                    <c:when test="${ad.city==city.id}">
+                    <p>  ${city.name}</p>
+                     </c:when>
+                    </c:choose>
+                </c:forEach>
+            </td>
             <td>${ad.phone}</td>
             <td>${ad.email}</td>
         </tr>
