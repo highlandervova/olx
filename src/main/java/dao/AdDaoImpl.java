@@ -45,6 +45,14 @@ public class AdDaoImpl implements AdDao {
     }
 
     @Override
+    public Collection<Ad> getByCity(String cityId) {
+        Session s = HibernateUtil.getSession();
+        Collection<Ad> out = s.createQuery("FROM Ad WHERE city='"+ cityId+"'").list();
+        s.close();
+        return out;
+    }
+
+    @Override
     public Collection<Ad> getByUserId(String userId) {
         Session s = HibernateUtil.getSession();
         Collection<Ad> out = s.createQuery(String.format("FROM Ad WHERE userId='%d'", userId)).list();

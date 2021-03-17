@@ -4,6 +4,8 @@ import dao.AdDao;
 import data.Ad;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+
 @Service
 public class AdService {
     private final AdDao adDao;
@@ -12,8 +14,18 @@ public class AdService {
         this.adDao = adDao;
     }
 
-    public Ad add(Ad ad){
+    public Ad add(Ad ad) {
         adDao.add(ad);
         return ad;
+    }
+
+    public Collection<Ad> getAdsByCity(String cityId) {
+        Collection<Ad> out = adDao.getByCity(cityId);
+        return out;
+    }
+
+    public Collection<Ad> getAll() {
+        Collection<Ad> out = adDao.get();
+        return out;
     }
 }

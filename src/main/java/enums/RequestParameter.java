@@ -12,7 +12,8 @@ public enum RequestParameter {
     DESCR       ("descr"),
     PIC         ("pic"),
     PRICE       ("price"),
-    RUBRIC      ("rubric");
+    RUBRIC      ("rubric"),
+    TYPE         ("type");
 
     RequestParameter(String value) {
         this.value = value;

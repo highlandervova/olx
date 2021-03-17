@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ad")
+@Table(name = "public.ad")
 public class Ad implements Serializable {
     @Id
     private String  id;
@@ -18,6 +18,7 @@ public class Ad implements Serializable {
     private Integer price;
     @Column(name = "userid")
     private String  userId;
+    @Column(name="city")
     private String  city;
     private String  phone;
     private String  email;
