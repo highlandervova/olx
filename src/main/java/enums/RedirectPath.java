@@ -3,13 +3,14 @@ package enums;
 public enum RedirectPath {
 
 
-    MAIN_PAGE("/olx_war_exploded/main"),
+    MAIN_PAGE("/olx_war/main"),
     MAIN_REDIRECT("main"),
-    LOGIN_PAGE("/olx_war_exploded/auth"),
-    REG_PAGE("/olx_war_exploded/reg"),
-    AD_PAGE("/olx_war_exploded/ad"),
-    EDIT_USER("/olx_war_exploded/editUser"),
-    EDIT_AD("/olx_war_exploded/editAd");
+    LOGIN_PAGE("/olx_war/auth"),
+    REG_PAGE("/olx_war/reg"),
+    AD_PAGE("/olx_war/addAd"),
+    EDIT_USER("/olx_war/editUser"),
+    EDIT_AD("/olx_war/editAd");
+
 
     private RedirectPath(String value) {
         this.value = value;
