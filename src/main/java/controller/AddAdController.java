@@ -2,6 +2,7 @@ package controller;
 
 import data.Ad;
 import data.User;
+import enums.RedirectPath;
 import enums.RequestParameter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ import java.io.IOException;
 import static enums.SessionAttribute.AUTHENTICATED;
 
 @Controller
-@RequestMapping("/ad")
+@RequestMapping("/addAd")
 public class AddAdController {
     private final AdService adService;
 
@@ -30,6 +31,7 @@ public class AddAdController {
     public ModelAndView getView() {
         ModelAndView out = new ModelAndView("addAd");
         out.addObject("title", "Adding OLX ad");
+        out.addObject("pathMain", RedirectPath.MAIN_PAGE.getValue());
         return out;
     }
 
@@ -53,6 +55,6 @@ public class AddAdController {
             ad.setRubric(Integer.parseInt(req.getParameter(RequestParameter.RUBRIC.getValue())));
             adService.add(ad);
         }
-        resp.sendRedirect("ad");
+        resp.sendRedirect("addAd");
     }
 }

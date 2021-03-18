@@ -61,7 +61,7 @@ Need to create Spring web project for tomcat web server using
         get 2 params - searchType and search, main jsp changes to search by city;+panarina
 
  DEV-027: Implement city select instead text input: entity, dao, service, change
-          controllers, change jsps DEP-024;
+          controllers, change jsps DEP-024;+panarina
 
  DEV-028: Create dao method getByCategory, service method, main controller logic of
         get 2 params - searchType and search, main jsp changes to search by category DEP-038;
@@ -95,6 +95,6 @@ Need to create Spring web project for tomcat web server using
  DEV-038: Create rubric table with int id, name columns and change where necessary text
         fields to selects;
 
- DEV-039: Add button GoToMainPage in ad screen;
++DEV-039: Add button GoToMainPage in ad screen;+panarina
 
- DEV-040: Implement disconnect user on main page using MainController get param exit=true;
++DEV-040: Implement disconnect user on main page using MainController get param exit=true;+panarina

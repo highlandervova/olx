@@ -32,6 +32,9 @@ TH {background: #b0e0e6;}
                 #bold5{
                     font-weight: bold;
                 }
+                #bold6{
+                    font-weight: bold;
+                }
 
 </style>
 
@@ -111,6 +114,11 @@ TH {background: #b0e0e6;}
                 <input type='submit' id='bold4'   class='buttonEnabled' value='Edit Account'/>
             </form>
             </th>
+            <th><form action=${pathMain} method='GET' >
+                <input type='submit' id='bold6'   class='buttonEnabled' name='logoff' value='Log off'/>
+            </form>
+            </th>
+
         </tr>
     </table>
 </c:if>

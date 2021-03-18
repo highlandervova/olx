@@ -13,7 +13,10 @@ import service.CityService;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+
+import static enums.SessionAttribute.AUTHENTICATED;
 
 @Controller
 @RequestMapping("main")
@@ -55,10 +58,15 @@ public class MainController {
         {
             out.addObject("ads", adService.getAll());
         } else {
-            out.addObject("ads", adService.getAdsByCity( req.getParameter(RequestParameter.TYPE.getValue())));
+            out.addObject("ads",
+                    adService.getAdsByCity( req.getParameter(RequestParameter.TYPE.getValue())));
         };
         String editU = RedirectPath.EDIT_USER.getValue();
         out.addObject("editU", editU);
+        if(   req.getParameter(RequestParameter.LOGOFF.getValue()) != null){
+            req.getSession().invalidate();
+           }
         return out;
+
     }
 }

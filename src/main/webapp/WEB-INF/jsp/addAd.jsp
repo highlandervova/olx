@@ -21,5 +21,10 @@
     <input type='submit' value='Add New Ad'/>
 </form>
 
+<form action=${pathMain}  method='GET'>
+    <input type='submit' value='To Main Page'/>
+</form>
+
+
 </body>
 </html>
