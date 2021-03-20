@@ -7,7 +7,7 @@ public enum RedirectPath {
     MAIN_REDIRECT("main"),
     LOGIN_PAGE("/olx_war/auth"),
     REG_PAGE("/olx_war/reg"),
-    AD_PAGE("/olx_war/addAd"),
+    ADD_AD_PAGE("/olx_war/addAd"),
     EDIT_USER("/olx_war/editUser"),
     EDIT_AD("/olx_war/editAd");
 

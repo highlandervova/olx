@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import service.AdService;
+import service.CityService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,9 +23,14 @@ import static enums.SessionAttribute.AUTHENTICATED;
 @RequestMapping("/editAd")
 public class EditAdController {
     private final AdService adService;
+    private final CityService cityService;
 
-    public EditAdController(AdService adService) {
+    public EditAdController(
+            AdService adService,
+           CityService cityService
+    ) {
         this.adService = adService;
+        this.cityService= cityService;
     }
 
     @GetMapping
@@ -41,6 +47,11 @@ public class EditAdController {
             out.addObject("pathEdit", RedirectPath.EDIT_AD.getValue());
             out.addObject("ad", adService.getById(adId));
             out.addObject("title", Title.EDIT_AD);
+            out.addObject("adCity", cityService.getCities());
+            User user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
+            String cityUserId = user.getCity();
+            out.addObject("cityUser", cityUserId);
+            out.addObject("otherCities", cityService.getOtherCities(cityUserId));
             return out;
         } else {
             resp.sendRedirect(RedirectPath.MAIN_REDIRECT.getValue());

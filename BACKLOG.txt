@@ -70,7 +70,7 @@ Need to create Spring web project for tomcat web server using
          get 2 params - searchType and search, main jsp changes to search by name,
          case insensitive search by part of ad name;
 
- DEV-030: Add checkbox to search by description too DEP-029;
++DEV-030: Add checkbox to search by description too DEP-029;+panarina
 
 +DEV-031: Create EditAdController and editAd.jsp to edit ads and RemoveAdController to
         remove an ad;+reznik

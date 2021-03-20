@@ -19,7 +19,20 @@
     Enter new password: <input type='password' name='pass1'>
     Enter new password again: <input type='password' name='pass2'>
     <br/> <br/>
-    Enter City: &nbsp  <input type='text' value="<%=user.getCity()%>" required name='city'>
+    Enter city:
+    <select name="city">
+        <c:forEach items="${adCity}" var="city1">
+            <c:choose>
+                <c:when test="${city1.id==cityUser}" >
+                    <option value=${city1.id}> ${city1.name} </option>
+                </c:when>
+            </c:choose>
+        </c:forEach>
+        <c:forEach items="${otherCities}" var="city">
+            <option value=${city.id}> ${city.name} </option>
+        </c:forEach>
+    </select>
+
     Enter Phone: <input type='text' value="<%=user.getPhone()%>" required name='phone'>
     Enter Email: <input type='email' value="<%=user.getEmail()%>" required name= 'email'>
     <br/> <br/>
@@ -31,9 +44,11 @@
 <br/>
 <br/>
 
+
 <form action=${pathMain}  method='GET'>
     <input type='submit' value='To Main Page'>
 </form>
+
 
 </body>
 </html>

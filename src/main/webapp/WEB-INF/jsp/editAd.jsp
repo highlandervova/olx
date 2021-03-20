@@ -16,7 +16,20 @@
         <input name="descr" type="text" required placeholder="Description" value="${ad.descr}"/><br/>
         <input name="pic" type="text" required placeholder="Picture" value="${ad.pic}"/><br/>
         <input name="price" type="number" required placeholder="Price" value="${ad.price}"/><br/>
-        <input name="city" type="text" required placeholder="City" value="${ad.city}"/><br/>
+        Enter city:
+        <select name="city">
+            <c:forEach items="${adCity}" var="city1">
+                <c:choose>
+                    <c:when test="${city1.id==cityUser}" >
+                        <option value=${city1.id}> ${city1.name} </option>
+                    </c:when>
+                </c:choose>
+            </c:forEach>
+            <c:forEach items="${otherCities}" var="city">
+                <option value=${city.id}> ${city.name} </option>
+            </c:forEach>
+        </select>
+         <br/>
         <input name="phone" type="text" required placeholder="Phone" value="${ad.phone}"/><br/>
         <input name="email" type="text" required placeholder="Email" value="${ad.email}"/><br/>
         <input type="hidden" name="edit" value="true"/>

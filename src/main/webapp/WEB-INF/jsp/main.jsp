@@ -45,6 +45,40 @@ TH {background: #b0e0e6;}
 <center>
     <h1>OLX</h1>
 </center>
+<c:if test="${not empty sessionScope.authenticated}">
+    <table align="center">
+        <tr>
+            <td width="150"><b>NAME</b></td>
+            <td width="150"><b>RUBRIC</b></td>
+            <td width="150"><b>DESCRIPTION</b></td>
+            <td width="40"></td>
+            <td width="150"><b>CITY</b></td>
+            <tr>
+        <td></td>
+        <td></td>
+        <td>
+        <form  method='GET' >
+            <textarea id="w3review" name="descrsearch" rows="1" cols="19"> Enter description for search</textarea>
+            <br/>
+            <input type='submit' class='buttonEnabled' name='SearchDescrButt' value='Search by descr'/>
+        </form>
+        </td>
+        <td>
+        </td>
+            <td>
+            Enter city:
+                <form method='GET'>
+                    <select name='citysearch'>
+                        <c:forEach items="${adCity}" var="cityS">
+                            <option value=${cityS.id}> ${cityS.name} </option>
+                        </c:forEach>
+                    </select>
+                    <input type='submit' class='buttonEnabled' name='SearchCityButt' value='Search by city' />
+                </form>
+            </td>
+        </tr>
+    </table>
+</c:if>
 
 <table id="maintable" width="80%" border="1" align="center">
 
@@ -58,6 +92,7 @@ TH {background: #b0e0e6;}
         <th>PHONE</th>
         <th>EMAIL</th>
     </tr>
+
     <c:forEach items="${ads}" var="ad">
         <tr>
             <td>

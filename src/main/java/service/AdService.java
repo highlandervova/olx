@@ -24,6 +24,11 @@ public class AdService {
         return out;
     }
 
+    public Collection<Ad> getAdsByDescr(String descr) {
+        Collection<Ad> out = adDao.getByDescr(descr);
+        return out;
+    }
+
     public Collection<Ad> getAll() {
         Collection<Ad> out = adDao.get();
         return out;

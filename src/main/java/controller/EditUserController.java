@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import service.CityService;
 import service.EditUserService;
 import service.UserService;
 
@@ -18,22 +19,33 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+import static enums.SessionAttribute.AUTHENTICATED;
+
 @Controller
 @RequestMapping("editUser")
 public class EditUserController {
 
     private final UserService userService;
     private final EditUserService editUserService;
+    private final CityService cityService;
 
-    public EditUserController(UserService userService, EditUserService editUserService) {
+    public EditUserController(UserService userService, EditUserService editUserService,CityService cityService) {
+
+        this.cityService=cityService;
         this.userService = userService;
         this.editUserService = editUserService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView editUserGet() {
+    public ModelAndView editUserGet(HttpServletRequest req) {
         ModelAndView out = new ModelAndView("editUser");
         out.addObject("title", "Edit User Account");
+        out.addObject("pathMain", RedirectPath.MAIN_PAGE.getValue());
+        User user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
+        out.addObject("adCity", cityService.getCities());
+        String cityUserId = user.getCity();
+        out.addObject("cityUser", cityUserId);
+        out.addObject("otherCities", cityService.getOtherCities(cityUserId));
         return out;
     }
 
@@ -41,7 +53,7 @@ public class EditUserController {
     public ModelAndView editUserPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         ModelAndView out = new ModelAndView("editUser");
         out.addObject("title", "Edit User Account");
-        String pathMain = RedirectPath.MAIN_PAGE.getValue();
+        String pathMain = RedirectPath.MAIN_REDIRECT.getValue();
         out.addObject("pathMain", pathMain);
         String login = req.getParameter(RequestParameter.LOGIN.getValue());
         String curPass = req.getParameter("curPass");
@@ -65,10 +77,21 @@ public class EditUserController {
                 req.getSession().setAttribute(SessionAttribute.AUTHENTICATED.getValue(), editedUser);
             }
             out.addObject("status", status.getValue());
+            user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
+            out.addObject("adCity", cityService.getCities());
+            String cityUserId = user.getCity();
+            out.addObject("cityUser", cityUserId);
+            out.addObject("otherCities", cityService.getOtherCities(cityUserId));
             return out;
+
         } else {
             resp.sendRedirect(RedirectPath.LOGIN_PAGE.getValue());
         }
+        User user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
+        out.addObject("adCity", cityService.getCities());
+        String cityUserId = user.getCity();
+        out.addObject("cityUser", cityUserId);
+        out.addObject("otherCities", cityService.getOtherCities(cityUserId));
         return out;
     }
 }

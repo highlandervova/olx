@@ -23,14 +23,30 @@
     Enter Pass:  &nbsp <input type='password' name='pass1'>
     Enter again: <input type='password' name='pass2'>
     <br/> <br/>
-    Enter City: &nbsp  <input type='city'  name='city'>
-    Enter Phone: <input type='phone' name='phone'>
+        Enter city:
+        <select name="city">
+
+            <c:forEach items="${adCity}" var="city">
+                <option value=${city.id}> ${city.name} </option>
+            </c:forEach>
+        </select>
+
+        Enter Phone: <input type='phone' name='phone'>
     Enter Email: <input type='email' name= 'email'>
     <br/> <br/>
+
+        <c:out value="${status}"/>
+        <br/> <br/>
 
     <input type='submit'  id="bold0" value='Register'>
     </form>
 
+<br/>
+<br/>
+
+    <form action=${pathMain}  method='GET'>
+        <input type='submit' value='To Main Page'>
+    </form>
 
 
 </body>

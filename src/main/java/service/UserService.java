@@ -30,7 +30,6 @@ public class UserService {
     }
 
     public boolean checkUserPassword(User u, String pass) {
-
         return u != null && u.getPass().equals(pass);
     }
 

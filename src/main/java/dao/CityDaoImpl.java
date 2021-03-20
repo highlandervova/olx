@@ -28,4 +28,12 @@ public class CityDaoImpl implements CityDao {
         s.close();
         return out;
     }
+
+    @Override
+    public Collection<City> getByIdofCollection(String id) {
+        Session s = HibernateUtil.getSession();
+        Collection<City> out = s.createQuery("FROM City WHERE id='"+id+"'").list();
+        s.close();
+        return out;
+    }
 }
