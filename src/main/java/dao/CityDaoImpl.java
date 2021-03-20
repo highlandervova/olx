@@ -24,7 +24,8 @@ public class CityDaoImpl implements CityDao {
     @Override
     public City getById(String id) {
         Session s = HibernateUtil.getSession();
-        City out =(City) s.createQuery("FROM City WHERE id='"+id+"'").uniqueResult();
+       // City out =(City) s.createQuery("FROM City WHERE id='"+id+"'").uniqueResult();
+        City out =(City) s.createQuery(String.format("FROM City WHERE id='%s'", id)).uniqueResult();
         s.close();
         return out;
     }
