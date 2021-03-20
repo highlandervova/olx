@@ -23,8 +23,8 @@ public class AdService {
         Collection<Ad> out = adDao.getByCity(cityId);
         return out;
     }
-
-    public Collection<Ad> getAdsByDescr(String descr) {
+//getAdsByDescr
+    public Collection<Ad> getByDescr(String descr) {
         Collection<Ad> out = adDao.getByDescr(descr);
         return out;
     }

@@ -5,6 +5,7 @@ import data.City;
 import data.User;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Service
@@ -32,7 +33,8 @@ public class CityService {
 
     public Collection<City> getOtherCities(String id){
         Collection<City> out1 = cityDao.get();
-        Collection<City>  out2 =  cityDao.getByIdofCollection(id);
+        Collection<City> out2= new ArrayList();
+        out2.add(getById(id));
         out1.removeAll(out2);
         return out1;
     }

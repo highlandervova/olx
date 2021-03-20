@@ -66,7 +66,7 @@ public class MainController {
         if ( req.getParameter(RequestParameter.DESCRSEARCH.getValue()) != null )
         {
             out.addObject("ads",
-                    adService.getAdsByDescr( req.getParameter(RequestParameter.DESCRSEARCH.getValue())));}
+                    adService.getByDescr( req.getParameter(RequestParameter.DESCRSEARCH.getValue())));}
 
         String editU = RedirectPath.EDIT_USER.getValue();
         out.addObject("editU", editU);
