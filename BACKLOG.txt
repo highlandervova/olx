@@ -60,7 +60,7 @@ Need to create Spring web project for tomcat web server using
 +DEV-026: Create dao method getByCity, service method, main controller logic of
         get 2 params - searchType and search, main jsp changes to search by city;+panarina
 
- DEV-027: Implement city select instead text input: entity, dao, service, change
++DEV-027: Implement city select instead text input: entity, dao, service, change
           controllers, change jsps DEP-024;+panarina
 
  DEV-028: Create dao method getByCategory, service method, main controller logic of
@@ -72,7 +72,7 @@ Need to create Spring web project for tomcat web server using
 
  DEV-030: Add checkbox to search by description too DEP-029;
 
-+DEV-031: Create EditAdController and editAd.jsp to edit ads and RemoveAdController to
+ +DEV-031: Create EditAdController and editAd.jsp to edit ads and RemoveAdController to
         remove an ad;+reznik
 
  DEV-032: Add autofill for city, phone, email fields with user's home city;

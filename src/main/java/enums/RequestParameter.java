@@ -13,7 +13,10 @@ public enum RequestParameter {
     PIC         ("pic"),
     PRICE       ("price"),
     RUBRIC      ("rubric"),
-    TYPE         ("type"),
+    TYPE        ("type"),
+    CITYSEARCH  ("citysearch"),
+    DESCRSEARCH ("descrsearch"),
+    REDIRECTS    ("redirects"),
     LOGOFF       ("logoff");
 
     RequestParameter(String value) {

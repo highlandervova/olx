@@ -13,27 +13,24 @@ import service.CityService;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static enums.SessionAttribute.AUTHENTICATED;
+
 
 @Controller
 @RequestMapping("main")
 public class MainController {
 
-    //private final AdDao adDao;
+
     private final CityService cityService;
     private final AdService adService;
-    private String idCity;
+
 
     @Autowired
     public MainController(
-            //final AdDao adDao,
                            final CityService cityService,
                            final AdService adService )
     {
-        //this.adDao = adDao;
         this.cityService = cityService;
         this.adService   = adService;
     }
@@ -43,9 +40,9 @@ public class MainController {
     ( HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ModelAndView out = new ModelAndView("main");
         out.addObject("title", "OLX main page");
-//        out.addObject("ads", adDao.get());
+
         out.addObject("adCity", cityService.getCities());
-        String adPage = RedirectPath.AD_PAGE.getValue();
+        String adPage = RedirectPath.ADD_AD_PAGE.getValue();
         out.addObject("pathAddAd", adPage);
         String pathMain = RedirectPath.MAIN_PAGE.getValue();
         out.addObject("pathMain", pathMain);
@@ -61,6 +58,16 @@ public class MainController {
             out.addObject("ads",
                     adService.getAdsByCity( req.getParameter(RequestParameter.TYPE.getValue())));
         };
+        if ( req.getParameter(RequestParameter.CITYSEARCH.getValue()) != null )
+        {
+            out.addObject("ads",
+                    adService.getAdsByCity( req.getParameter(RequestParameter.CITYSEARCH.getValue())));}
+
+        if ( req.getParameter(RequestParameter.DESCRSEARCH.getValue()) != null )
+        {
+            out.addObject("ads",
+                    adService.getByDescr( req.getParameter(RequestParameter.DESCRSEARCH.getValue())));}
+
         String editU = RedirectPath.EDIT_USER.getValue();
         out.addObject("editU", editU);
         if(   req.getParameter(RequestParameter.LOGOFF.getValue()) != null){
