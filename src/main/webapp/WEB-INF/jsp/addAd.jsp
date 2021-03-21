@@ -29,10 +29,11 @@
     <option value=${city.id}> ${city.name} </option>
     </c:forEach>
     </select>
-
-    <input name="phone" type="text" required placeholder="Phone"/>
-    <input name="email" type="text" required placeholder="Email">
-    <input name="rubric" type="number" required placeholder="Rubric">
+    <input name="phone" type="text" required = false placeholder="Phone" value="${phoneUser}"/>
+    <input name="email" type="text" required = false placeholder="Email" value="${emailUser}"/>
+<%--    <input name="phone" type="text" required placeholder=${phoneUser}>--%>
+<%--    <input name="email" type="text" required placeholder=${emailUser}>--%>
+    <input name="rubric" type="number" required placeholder="Rubric"/>
     <br/><br/>
     <c:out value="${status}"/>
 

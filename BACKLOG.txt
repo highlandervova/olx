@@ -75,7 +75,7 @@ Need to create Spring web project for tomcat web server using
  +DEV-031: Create EditAdController and editAd.jsp to edit ads and RemoveAdController to
         remove an ad;+reznik
 
- DEV-032: Add autofill for city, phone, email fields with user's home city;
++DEV-032: Add autofill for city, phone, email fields with user's home city;+panarina
 
  DEV-033: Develop messaging system: message table, dao, service, jsp changes of
         editAd.jsp, handle messaging on editAd.jsp and controller DEP-031;

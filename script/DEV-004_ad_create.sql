@@ -15,6 +15,7 @@ CREATE TABLE public.ad
 
     TABLESPACE pg_default;
 
-ALTER TABLE public.ad
+ ALTER TABLE public.ad
     OWNER to postgres;
 
+ALTER TABLE ad ADD COLUMN date TIMESTAMP
