@@ -81,7 +81,7 @@ Need to create Spring web project for tomcat web server using
         editAd.jsp, handle messaging on editAd.jsp and controller DEP-031;
 
  DEV-034: Add column date to ad table and entity, sorting output ad collections by
-        that date;+panarina
+        that date;
 
  DEV-035: Add to top function for ad owners DEP-034;
 
