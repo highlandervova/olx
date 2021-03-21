@@ -47,6 +47,8 @@ public class AddAdController {
         User user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
         String cityUserId = user.getCity();
         out.addObject("cityUser", cityUserId);
+        out.addObject("phoneUser",user.getPhone() );
+        out.addObject("emailUser",user.getEmail() );
         out.addObject("otherCities", cityService.getOtherCities(cityUserId));
         return out;
     }
