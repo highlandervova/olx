@@ -42,16 +42,15 @@ public class EditAdController {
             ModelAndView out = new ModelAndView("editAd");
             if (userFromSession != null && userFromSession.getId().equals(ad.getUserId())) {
                 out.addObject("edit", true);
+                out.addObject("FavorYes",ad.getFavor());
+                out.addObject("cityUser", userFromSession.getCity());
+                out.addObject("otherCities", cityService.getOtherCities(userFromSession.getCity()));
             }
             out.addObject("pathMain", RedirectPath.MAIN_PAGE.getValue());
             out.addObject("pathEdit", RedirectPath.EDIT_AD.getValue());
             out.addObject("ad", adService.getById(adId));
             out.addObject("title", Title.EDIT_AD);
             out.addObject("adCity", cityService.getCities());
-            User user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
-            String cityUserId = user.getCity();
-            out.addObject("cityUser", cityUserId);
-            out.addObject("otherCities", cityService.getOtherCities(cityUserId));
             return out;
         } else {
             resp.sendRedirect(RedirectPath.MAIN_REDIRECT.getValue());
@@ -70,10 +69,22 @@ public class EditAdController {
                       @RequestParam(required = false) String email,
                       @RequestParam(required = false) String phone,
                       @RequestParam(required = false) String edit,
+                      @RequestParam(required = false) String setFavor,
+                      @RequestParam(required = false) String delFavor,
+                      @RequestParam(required = false) String setTop,
                       @RequestParam(required = false) String delete) throws IOException {
         User userFromSession = (User) req.getSession(false).getAttribute(AUTHENTICATED.getValue());
         Ad ad = adService.getById(id);
         if (userFromSession != null && ad!= null && userFromSession.getId().equals(ad.getUserId())) {
+            if ("true".equals(setFavor)) {
+                adService.updateFavorite(id);
+            }
+            if ("true".equals(delFavor)) {
+                adService.deleteFavorite(id);
+            }
+            if ("true".equals(setTop)) {
+                adService.updateCurrentDate(id);
+            }
             if ("true".equals(delete)) {
                 adService.remove(ad);
             }

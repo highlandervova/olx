@@ -63,6 +63,11 @@ public class MainController {
             out.addObject("ads",
                     adService.getAdsByCity( req.getParameter(RequestParameter.CITYSEARCH.getValue())));}
 
+        if ( req.getParameter(RequestParameter.FAVORSEARCH.getValue()) != null )
+        {
+            out.addObject("ads",
+                    adService.getByFavorite());}
+
         if ( req.getParameter(RequestParameter.DESCRSEARCH.getValue()) != null )
         {
             out.addObject("ads",
