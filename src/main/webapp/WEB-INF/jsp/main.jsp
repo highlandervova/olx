@@ -53,6 +53,7 @@ TH {background: #b0e0e6;}
             <td width="150"><b>DESCRIPTION</b></td>
             <td width="40"></td>
             <td width="150"><b>CITY</b></td>
+            <td width="150"><b>FAVORITE</b></td>
             <tr>
         <td></td>
         <td></td>
@@ -76,6 +77,11 @@ TH {background: #b0e0e6;}
                     <input type='submit' class='buttonEnabled' name='SearchCityButt' value='Search by city' />
                 </form>
             </td>
+        <td>
+            <form  method='GET' >
+                <input type='submit' class='buttonEnabled' name='favorsearch' value='Only Favorite'/>
+            </form>
+        </td>
         </tr>
     </table>
 </c:if>
@@ -91,6 +97,8 @@ TH {background: #b0e0e6;}
         <th>CITY</th>
         <th>PHONE</th>
         <th>EMAIL</th>
+        <th>DATE</th>
+        <th>FAVORITE</th>
     </tr>
 
     <c:forEach items="${ads}" var="ad">
@@ -115,6 +123,15 @@ TH {background: #b0e0e6;}
             </td>
             <td>${ad.phone}</td>
             <td>${ad.email}</td>
+            <td>${ad.date}</td>
+            <td>
+                <c:choose>
+                    <c:when test="${ad.favor==1}">
+                        <img style='width: 25px;' src='http://i.piccy.info/i9/bdfebd1d105afe669c3904391b4d2b2b/1616363027/19124/1415872/star.jpg' alt='YES'/>
+                    </c:when>
+                </c:choose>
+
+            </td>
         </tr>
     </c:forEach>
 </table>

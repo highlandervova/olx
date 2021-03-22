@@ -5,29 +5,32 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "public.ad")
 public class Ad implements Serializable {
     @Id
-    private String  id;
-    private String  name;
-    private String  descr;
-    private String  pic;
+    private String id;
+    private String name;
+    private String descr;
+    private String pic;
     private Integer price;
     @Column(name = "userid")
-    private String  userId;
-    @Column(name="city")
-    private String  city;
-    private String  phone;
-    private String  email;
+    private String userId;
+    @Column(name = "city")
+    private String city;
+    private String phone;
+    private String email;
     private Integer rubric;
+    private Date date;
+    private Integer favor;
 
     public Ad() {
     }
 
-    public Ad(String id, String name, String descr, String pic, Integer price, String userId, String city, String phone, String email, Integer rubric) {
+    public Ad(String id, String name, String descr, String pic, Integer price, String userId, String city, String phone, String email, Integer rubric, Date date, Integer favor) {
         this.id = id;
         this.name = name;
         this.descr = descr;
@@ -38,6 +41,8 @@ public class Ad implements Serializable {
         this.phone = phone;
         this.email = email;
         this.rubric = rubric;
+        this.date = date;
+        this.favor = favor;
     }
 
     public String getId() {
@@ -60,8 +65,8 @@ public class Ad implements Serializable {
         return descr;
     }
 
-    public void setDescr(String desc) {
-        this.descr = desc;
+    public void setDescr(String descr) {
+        this.descr = descr;
     }
 
     public String getPic() {
@@ -120,6 +125,35 @@ public class Ad implements Serializable {
         this.rubric = rubric;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Integer getFavor() {
+        return favor;
+    }
+
+    public void setFavor(Integer favor) {
+        this.favor = favor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ad ad = (Ad) o;
+        return Objects.equals(id, ad.id) && Objects.equals(name, ad.name) && Objects.equals(descr, ad.descr) && Objects.equals(pic, ad.pic) && Objects.equals(price, ad.price) && Objects.equals(userId, ad.userId) && Objects.equals(city, ad.city) && Objects.equals(phone, ad.phone) && Objects.equals(email, ad.email) && Objects.equals(rubric, ad.rubric) && Objects.equals(date, ad.date) && Objects.equals(favor, ad.favor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, descr, pic, price, userId, city, phone, email, rubric, date, favor);
+    }
+
     @Override
     public String toString() {
         return "Ad{" +
@@ -133,19 +167,8 @@ public class Ad implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", rubric=" + rubric +
+                ", date=" + date +
+                ", favor=" + favor +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ad ad = (Ad) o;
-        return Objects.equals(id, ad.id) && Objects.equals(name, ad.name) && Objects.equals(descr, ad.descr) && Objects.equals(pic, ad.pic) && Objects.equals(price, ad.price) && Objects.equals(userId, ad.userId) && Objects.equals(city, ad.city) && Objects.equals(phone, ad.phone) && Objects.equals(email, ad.email) && Objects.equals(rubric, ad.rubric);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, descr, pic, price, userId, city, phone, email, rubric);
     }
 }

@@ -18,4 +18,6 @@ CREATE TABLE public.ad
  ALTER TABLE public.ad
     OWNER to postgres;
 
-ALTER TABLE ad ADD COLUMN date TIMESTAMP
+ALTER TABLE ad ADD COLUMN date TIMESTAMP;
+
+ALTER TABLE ad ADD COLUMN favor integer;

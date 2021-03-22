@@ -40,6 +40,30 @@
         <input type="hidden" name="delete" value="true"/>
         <input type='submit' value='Delete Ad'/>
     </form>
+    <form action="${pathEdit}" method='post'>
+        <input type="hidden" value="${ad.id}" name="id"/>
+        <input type="hidden" name="setTop" value="true"/>
+        <input type='submit' value='Top Ad'/>
+    </form>
+    <c:choose>
+        <c:when test="${FavorYes!='1'}" >
+            <form action="${pathEdit}" method='post'>
+                <input type="hidden" value="${ad.id}" name="id"/>
+                <input type="hidden" name="setFavor" value="true"/>
+                <input type='submit' value='Favorite Ad'/>
+            </form>
+        </c:when>
+    </c:choose>
+    <c:choose>
+        <c:when test="${FavorYes=='1'}" >
+            <form action="${pathEdit}" method='post'>
+                <input type="hidden" value="${ad.id}" name="id"/>
+                <input type="hidden" name="delFavor" value="true"/>
+                <input type='submit' value='Delete Favorite'/>
+            </form>
+        </c:when>
+    </c:choose>
+
 </c:if>
 <c:if test="${!edit}">
     ${ad.name}<br/>

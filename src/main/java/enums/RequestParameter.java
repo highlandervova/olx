@@ -15,6 +15,7 @@ public enum RequestParameter {
     RUBRIC      ("rubric"),
     TYPE        ("type"),
     CITYSEARCH  ("citysearch"),
+    FAVORSEARCH  ("favorsearch"),
     DESCRSEARCH ("descrsearch"),
     REDIRECTS    ("redirects"),
     LOGOFF       ("logoff");

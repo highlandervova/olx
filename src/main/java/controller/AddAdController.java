@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
 
 import static enums.SessionAttribute.AUTHENTICATED;
 
@@ -71,6 +73,7 @@ public class AddAdController {
             ad.setPhone(req.getParameter(RequestParameter.PHONE.getValue()));
             ad.setEmail(req.getParameter(RequestParameter.EMAIL.getValue()));
             ad.setRubric(Integer.parseInt(req.getParameter(RequestParameter.RUBRIC.getValue())));
+            ad.setDate(new Date());
             adService.add(ad);
             EditUserStatus status = EditUserStatus.CHANGES_SAVED;
             out.addObject("status", status.getValue());
