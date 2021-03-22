@@ -43,7 +43,7 @@ public class AdDaoImpl implements AdDao {
     @Override
     public Collection<Ad> getFavorTop3() {
         Session s = HibernateUtil.getSession();
-        Collection<Ad> out = s.createQuery("FROM  Ad where favor=1 order by random() limit 3").list();
+        Collection<Ad> out = s.createQuery("FROM  Ad where favor=1 order by date  desc").list();
         //Collection<Ad> out = s.createQuery("FROM (select * from Ad where Ad.favor=1 order by random() limit 3) as ADT order by date desc").list();
         s.close();
         return out;

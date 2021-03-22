@@ -42,12 +42,9 @@ public class EditAdController {
             ModelAndView out = new ModelAndView("editAd");
             if (userFromSession != null && userFromSession.getId().equals(ad.getUserId())) {
                 out.addObject("edit", true);
-                User user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
-                String cityUserId = user.getCity();
-                Integer FavorYes = ad.getFavor();
                 out.addObject("FavorYes",ad.getFavor());
-                out.addObject("cityUser", cityUserId);
-                out.addObject("otherCities", cityService.getOtherCities(cityUserId));
+                out.addObject("cityUser", userFromSession.getCity());
+                out.addObject("otherCities", cityService.getOtherCities(userFromSession.getCity()));
             }
             out.addObject("pathMain", RedirectPath.MAIN_PAGE.getValue());
             out.addObject("pathEdit", RedirectPath.EDIT_AD.getValue());
