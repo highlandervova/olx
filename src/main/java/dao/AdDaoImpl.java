@@ -34,28 +34,12 @@ public class AdDaoImpl implements AdDao {
     @Override
     public Collection<Ad> get() {
         Session s = HibernateUtil.getSession();
-        //Collection<Ad> out = s.createQuery("SELECT  ad.id,ad.name,ad.descr,ad.pic,ad.price,ad.userId,ad.city,ad.phone,ad.email,ad.rubric, TO_CHAR(ad.date, 'DD/MM/YYYY'),ad.favor FROM Ad ad order by ad.date  desc").list();
         Collection<Ad> out = s.createQuery("FROM Ad order by date  desc").list();
         s.close();
         return out;
     }
 
-    @Override
-    public Collection<Ad> getFavorTop3() {
-        Session s = HibernateUtil.getSession();
-        Collection<Ad> out = s.createQuery("FROM  Ad where favor=1 order by date  desc").list();
-        //Collection<Ad> out = s.createQuery("FROM (select * from Ad where Ad.favor=1 order by random() limit 3) as ADT order by date desc").list();
-        s.close();
-        return out;
-    }
 
-    @Override
-    public Collection<Ad> getByFavor() {
-        Session s = HibernateUtil.getSession();
-        Collection<Ad> out = s.createQuery(String.format("FROM Ad WHERE favor=1")).list();
-        s.close();
-        return out;
-    }
 
     @Override
     public Collection<Ad> getByRubric(Integer rubric) {
@@ -139,4 +123,24 @@ public class AdDaoImpl implements AdDao {
         s.close();
         return true;
     }
+
+    @Override
+    public Collection<Ad> getByFavor() {
+        Session s = HibernateUtil.getSession();
+        Collection<Ad> out = s.createQuery(String.format("FROM Ad WHERE favor=1 order by date desc")).list();
+        s.close();
+        return out;
+    }
+
+//    @Override
+//    public User getByUserAds() {
+//        Session s = HibernateUtil.getSession();
+//        User out =(data.User) s.createQuery("userid FROM Ad").list();
+//        s.close();
+//        return out;
+//         }
+    /*
+    select distinct userid  from ad
+     */
 }
+

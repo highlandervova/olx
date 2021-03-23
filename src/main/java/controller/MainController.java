@@ -14,7 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+import java.util.Date;
 
 
 @Controller
@@ -24,6 +24,7 @@ public class MainController {
 
     private final CityService cityService;
     private final AdService adService;
+    private Date date;
 
 
     @Autowired
@@ -37,10 +38,10 @@ public class MainController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView mainGet
-    ( HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    ( HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         ModelAndView out = new ModelAndView("main");
         out.addObject("title", "OLX main page");
-
         out.addObject("adCity", cityService.getCities());
         String adPage = RedirectPath.ADD_AD_PAGE.getValue();
         out.addObject("pathAddAd", adPage);
@@ -54,24 +55,35 @@ public class MainController {
         if ( req.getParameter(RequestParameter.TYPE.getValue()) == null )
         {
             out.addObject("ads", adService.getAll());
+            out.addObject("topAds",adService.getFavor3());
+            out.addObject("notTop", "0");
         } else {
             out.addObject("ads",
                     adService.getAdsByCity( req.getParameter(RequestParameter.TYPE.getValue())));
+            out.addObject("notTop", "1");
         };
         if ( req.getParameter(RequestParameter.CITYSEARCH.getValue()) != null )
         {
             out.addObject("ads",
-                    adService.getAdsByCity( req.getParameter(RequestParameter.CITYSEARCH.getValue())));}
+                    adService.getAdsByCity( req.getParameter(RequestParameter.CITYSEARCH.getValue()))
+            );
+            out.addObject("notTop", "1");
+        }
 
         if ( req.getParameter(RequestParameter.FAVORSEARCH.getValue()) != null )
         {
             out.addObject("ads",
-                    adService.getByFavorite());}
+                    adService.getByFavorite());
+            out.addObject("notTop", "1");
+
+        }
 
         if ( req.getParameter(RequestParameter.DESCRSEARCH.getValue()) != null )
         {
             out.addObject("ads",
-                    adService.getByDescr( req.getParameter(RequestParameter.DESCRSEARCH.getValue())));}
+                    adService.getByDescr( req.getParameter(RequestParameter.DESCRSEARCH.getValue())));
+            out.addObject("notTop", "1");
+        }
 
         String editU = RedirectPath.EDIT_USER.getValue();
         out.addObject("editU", editU);

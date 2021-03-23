@@ -2,7 +2,6 @@ package service;
 
 import dao.CityDao;
 import data.City;
-import data.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

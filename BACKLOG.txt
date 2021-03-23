@@ -85,9 +85,9 @@ Need to create Spring web project for tomcat web server using
 
 +DEV-035: Add to top function for ad owners DEP-034;+panarina
 
- DEV-036: Add column favorite to ad table, getByCategoryFavorite, byName and
++DEV-036: Add column favorite to ad table, getByCategoryFavorite, byName and
         methods, change main.jsp and MainController to show favorites block from 3
-        random favorite ad. Aware to do it in search scenario too;
+        random favorite ad. Aware to do it in search scenario too;+panarina
 
  DEV-037: Create main controller logic to get param - searchType=myAds, main jsp changes
         to search user's ads;
