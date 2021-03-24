@@ -17,6 +17,21 @@
         <input name="descr" type="text" required placeholder="Description" value="${ad.descr}"/><br/>
         <input name="pic" type="text" required placeholder="Picture" value="${ad.pic}"/><br/>
         <input name="price" type="number" required placeholder="Price" value="${ad.price}"/><br/>
+        Enter rubric:
+        <select name="rubric">
+            <c:forEach items="${adRubric}" var="rubricAds">
+                <c:choose>
+                    <c:when test="${rubricAds.id==rubricAd}" >
+                        <option value=${rubricAds.id}> ${rubricAds.name} </option>
+                    </c:when>
+                </c:choose>
+            </c:forEach>
+            <c:forEach items="${otherRubrics}" var="rubrics">
+                <option value=${rubrics.id}> ${rubrics.name} </option>
+            </c:forEach>
+        </select>
+        <br/>
+
         Enter city:
         <select name="city">
             <c:forEach items="${adCity}" var="city1">

@@ -14,5 +14,6 @@
         <mapping class="data.User"/>
         <mapping class="data.City"/>
         <mapping class="data.Message"/>
+        <mapping class="data.Rubric"/>
     </session-factory>
 </hibernate-configuration>

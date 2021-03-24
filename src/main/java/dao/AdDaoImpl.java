@@ -66,6 +66,14 @@ public class AdDaoImpl implements AdDao {
     }
 
     @Override
+    public Collection<Ad> getByName(String name) {
+        Session s = HibernateUtil.getSession();
+        Collection<Ad> out = s.createQuery("FROM Ad WHERE lower(name) LIKE lower('%"+ name+"%')").list();
+        s.close();
+        return out;
+    }
+
+    @Override
     public Collection<Ad> getByUserId(String userId) {
         Session s = HibernateUtil.getSession();
         Collection<Ad> out = s.createQuery(String.format("FROM Ad WHERE userId='%s'", userId)).list();

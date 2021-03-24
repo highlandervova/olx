@@ -16,6 +16,8 @@ public enum RequestParameter {
     TYPE        ("type"),
     CITYSEARCH  ("citysearch"),
     USERADSSEARCH ("usersearch"),
+    RUBRICSEARCH ("rubricsearch"),
+    NAMESEARCH   ("namesearch"),
     FAVORSEARCH  ("favorsearch"),
     DESCRSEARCH ("descrsearch"),
     REDIRECTS    ("redirects"),

@@ -34,6 +34,16 @@ public class AdService {
         return out;
     }
 
+    public Collection<Ad> getByName(String name) {
+        Collection<Ad> out = adDao.getByName(name);
+        return out;
+    }
+
+    public Collection<Ad> getAdsByRubric(int rubricId) {
+        Collection<Ad> out = adDao.getByRubric(rubricId);
+        return out;
+    }
+
     public Collection<Ad> getByFavorite() {
         Collection<Ad> out = adDao.getByFavor();
         return out;
@@ -41,8 +51,6 @@ public class AdService {
 
     public Collection<Ad> getAll() {
         Collection<Ad> out = adDao.get();
-        Collection<Ad> top = getFavor3();
-        out.removeAll(top);
         return out;
     }
 

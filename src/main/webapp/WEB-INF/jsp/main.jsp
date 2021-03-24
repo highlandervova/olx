@@ -45,30 +45,21 @@
 <c:if test="${not empty sessionScope.authenticated}">
     <table align="center">
         <tr>
-            <td width="150"><b>NAME</b></td>
-            <td width="150"><b>RUBRIC</b></td>
-            <td width="150"><b>DESCRIPTION</b></td>
-            <td width="40"></td>
-            <td width="150"><b>CITY</b></td>
-            <td width="150"><b>FAVORITE</b></td>
-        <tr>
-            <td></td>
-            <td>
-                                User ad's:
-                                <form method='GET'>
-                                    <select name='usersearch'>
-                                        <c:forEach items="${userads}" var="usAds">
 
-                                            <c:choose>
-                                                <c:when test="${usAds.id==idUser}" >
-                                                    <option value="${usAds.id}"> My ad's </option>
-                                                </c:when>
-                                            </c:choose>
-                                            <option value="${usAds.id}"> ${usAds.login} </option>
-                                        </c:forEach>
-                                    </select>
-                                    <input type='submit' class='buttonEnabled' name='SearchUsr' value='Search by usersAds' />
-                                </form>
+            <td width="150"><b>NAME</b></td>
+            <td width="150"><b>DESCRIPTION</b></td>
+            <td width="150"><b>RUBRIC</b></td>
+             <td width="150"><b>CITY</b></td>
+            <td width="150"></td>
+            <td width="150"><b>FAVORITE</b></td>
+        </tr>
+            <td>
+                <form  method='GET' >
+                    <textarea  name="namesearch" rows="1" cols="19"></textarea>
+                    <br/>
+                    <input type='submit' class='buttonEnabled' name='SearchDescrButt' value='Search by name'/>
+                </form>
+
             </td>
             <td>
                 <form  method='GET' >
@@ -77,8 +68,18 @@
                     <input type='submit' class='buttonEnabled' name='SearchDescrButt' value='Search by descr'/>
                 </form>
             </td>
-            <td>
-            </td>
+<td>
+            Enter rubric:
+            <form method='GET'>
+                <select name='rubricsearch'>
+                    <option > rubric? </option>
+                    <c:forEach items="${adRubric}" var="adrubrics">
+                       <option value=${adrubrics.id}> ${adrubrics.name} </option>
+                    </c:forEach>
+                </select>
+                <input type='submit' class='buttonEnabled'  value='Search by rubric' />
+            </form>
+         </td>
             <td>
                 Enter city:
                 <form method='GET'>
@@ -91,10 +92,28 @@
                 </form>
             </td>
             <td>
+                User ad's:
+                <form method='GET'>
+                    <select name='usersearch'>
+                        <c:forEach items="${userads}" var="usAds">
+
+                            <c:choose>
+                                <c:when test="${usAds.id==idUser}" >
+                                    <option value="${usAds.id}"> My ad's </option>
+                                </c:when>
+                            </c:choose>
+                            <option value="${usAds.id}"> ${usAds.login} </option>
+                        </c:forEach>
+                    </select>
+                    <input type='submit' class='buttonEnabled' name='SearchUsr' value='Search by usersAds' />
+                </form>
+            </td>
+            <td>
                 <form  method='GET' >
                     <input type='submit' class='buttonEnabled' name='favorsearch' value='Only Favorite'/>
                 </form>
             </td>
+
         </tr>
     </table>
 </c:if>
@@ -116,14 +135,20 @@
 
     <c:choose>
         <c:when test="${notTop=='0'}">
-
-
             <c:forEach items="${topAds}" var="adTop">
                 <tr>
                     <td>
                         <a href="${pathEdit}?adId=${adTop.id}">${adTop.name}</a>
                     </td>
-                    <td>${adTop.rubric}</td>
+                    <td>
+                        <c:forEach items="${adRubric}" var="adrbc">
+                            <c:choose>
+                                <c:when test="${adTop.rubric==adrbc.id}">
+                                    <p>  ${adrbc.name}</p>
+                                </c:when>
+                            </c:choose>
+                        </c:forEach>
+                    </td>
                     <td><h2>${adTop.price}</h2> <h4>USD</h4></td>
                     <td>${adTop.descr}</td>
                     <td><img style='width: 100px;' src='${adTop.pic}' alt='No Picture'/></td>
@@ -144,9 +169,9 @@
                         <c:set var="dtAds" value="${adTop.date}"/>
                         <%
                             java.util.Date dateAd=(java.util.Date) pageContext.getAttribute("dtAds");
-//                            String today = new SimpleDateFormat("dd-MM-yyyy").format(dateAd);
-//                            out.print(today);
-                            out.print(dateAd);
+                            String today = new SimpleDateFormat("dd-MM-yyyy").format(dateAd);
+                            out.print(today);
+
                         %>
                     </td>
                     <td>
@@ -168,7 +193,16 @@
             <td>
                 <a href="${pathEdit}?adId=${ad.id}">${ad.name}</a>
             </td>
-            <td>${ad.rubric}</td>
+            <td>
+                <c:forEach items="${adRubric}" var="adrbc">
+                    <c:choose>
+                        <c:when test="${ad.rubric==adrbc.id}">
+                            <p>  ${adrbc.name}</p>
+                        </c:when>
+                    </c:choose>
+                </c:forEach>
+
+            </td>
             <td><h2>${ad.price}</h2> <h4>USD</h4></td>
             <td>${ad.descr}</td>
             <td><img style='width: 100px;' src='${ad.pic}' alt='No Picture'/></td>
@@ -188,9 +222,8 @@
             <td><c:set var="dtAds" value="${ad.date}"/>
                 <%
                     java.util.Date dateAd=(java.util.Date) pageContext.getAttribute("dtAds");
-//                    String today = new SimpleDateFormat("dd-MM-yyyy").format(dateAd);
-//                    out.print(today);
-                    out.print(dateAd);
+                    String today = new SimpleDateFormat("dd-MM-yyyy").format(dateAd);
+                    out.print(today);
                 %>
             </td>
             <td>

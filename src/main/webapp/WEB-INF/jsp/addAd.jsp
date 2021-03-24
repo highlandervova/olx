@@ -25,6 +25,7 @@
        </c:when>
        </c:choose>
        </c:forEach>
+
     <c:forEach items="${otherCities}" var="city">
     <option value=${city.id}> ${city.name} </option>
     </c:forEach>
@@ -33,8 +34,14 @@
     <input name="email" type="text" required = false placeholder="Email" value="${emailUser}"/>
 <%--    <input name="phone" type="text" required placeholder=${phoneUser}>--%>
 <%--    <input name="email" type="text" required placeholder=${emailUser}>--%>
-    <input name="rubric" type="number" required placeholder="Rubric"/>
-    <br/><br/>
+    Enter rubric:
+    <select name="rubric">
+        <c:forEach items="${adRubric}" var="rubrics">
+            <option value=${rubrics.id}> ${rubrics.name} </option>
+        </c:forEach>
+    </select>
+    <br/>
+   <br/>
     <c:out value="${status}"/>
 
     <br/> <br/>
