@@ -1,5 +1,6 @@
 package controller;
 
+import data.User;
 import enums.RedirectPath;
 import enums.RequestParameter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,11 @@ import service.UserService;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
+
+import static enums.SessionAttribute.AUTHENTICATED;
 
 
 @Controller
@@ -25,7 +29,7 @@ public class MainController {
 
     private final CityService cityService;
     private final AdService adService;
-    private UserService userService;
+    private final UserService userService;
 
 
 
@@ -47,7 +51,7 @@ public class MainController {
         ModelAndView out = new ModelAndView("main");
         out.addObject("title", "OLX main page");
         out.addObject("adCity", cityService.getCities());
-        out.addObject("userAds", userService.getByUsersFromAds());
+
         String adPage = RedirectPath.ADD_AD_PAGE.getValue();
         out.addObject("pathAddAd", adPage);
         String pathMain = RedirectPath.MAIN_PAGE.getValue();
@@ -59,6 +63,7 @@ public class MainController {
         out.addObject("pathEdit", RedirectPath.EDIT_AD.getValue());
         if ( req.getParameter(RequestParameter.TYPE.getValue()) == null )
         {
+
             out.addObject("ads", adService.getAll());
             out.addObject("topAds",adService.getFavor3());
             out.addObject("notTop", "0");
@@ -83,6 +88,13 @@ public class MainController {
 
         }
 
+        if ( req.getParameter(RequestParameter.USERADSSEARCH.getValue()) != null )
+        {
+//            out.addObject("ads",
+//                    adService.getByDescr( req.getParameter(RequestParameter.DESCRSEARCH.getValue())));
+            out.addObject("notTop", "1");
+        }
+
         if ( req.getParameter(RequestParameter.DESCRSEARCH.getValue()) != null )
         {
             out.addObject("ads",
@@ -95,6 +107,21 @@ public class MainController {
         if(   req.getParameter(RequestParameter.LOGOFF.getValue()) != null){
             req.getSession().invalidate();
            }
+       // HttpSession session = req.getSession(false);
+        if ((req.getSession().getAttribute(AUTHENTICATED.getValue())) != null) {
+            User user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
+            String userIdd = user.getId();
+            out.addObject("idUser", userIdd);
+            out.addObject("userads", userService.getByUsersFromAds());
+
+        }
+        if ( req.getParameter(RequestParameter.USERADSSEARCH.getValue()) != null )
+        {
+            out.addObject("ads",
+                    adService.getUserAds( req.getParameter(RequestParameter.USERADSSEARCH.getValue())));
+            out.addObject("notTop", "1");
+        }
+
         return out;
 
     }

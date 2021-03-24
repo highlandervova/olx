@@ -68,7 +68,7 @@ public class AdDaoImpl implements AdDao {
     @Override
     public Collection<Ad> getByUserId(String userId) {
         Session s = HibernateUtil.getSession();
-        Collection<Ad> out = s.createQuery(String.format("FROM Ad WHERE userId='%d'", userId)).list();
+        Collection<Ad> out = s.createQuery(String.format("FROM Ad WHERE userId='%s'", userId)).list();
         s.close();
         return out;
     }

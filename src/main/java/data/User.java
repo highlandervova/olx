@@ -35,15 +35,6 @@ public class User  implements Serializable{
 
     }
 
-
-//    public User update (User u, String pass, String city, String phone, String email ) {
-//        u.setPass(pass);
-//        u.setCity(city);
-//        u.setEmail(email);
-//        u.setPhone(phone);
-//        return u;
-//    }
-
     public String getId() {
         return id;
     }
