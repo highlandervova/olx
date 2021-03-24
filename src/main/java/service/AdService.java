@@ -176,10 +176,12 @@ public class AdService {
     }
 
 
+    public Collection<Ad> getUserAds(String usId){ return adDao.getByUserId(usId);}
 
     public Ad getById(String adId) {
         return adDao.getById(adId);
     }
+
 
 
     public void update(Ad adToEdit) {
