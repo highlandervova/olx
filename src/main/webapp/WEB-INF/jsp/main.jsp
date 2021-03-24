@@ -63,9 +63,9 @@ TH {background: #b0e0e6;}
 <%--            User ad's:--%>
 <%--            <form method='GET'>--%>
 <%--                <select name='usersearch'>--%>
-<%--                    <option value=${Users.id}> My ad's </option>--%>
-<%--                    <c:forEach items="${UsersAds}" var="cityS">--%>
-<%--                        <option value=${users.id}> ${users.login} </option>--%>
+<%--&lt;%&ndash;                    <option value=${Users.id}> My ad's </option>&ndash;%&gt;--%>
+<%--                    <c:forEach items="${UsersAds}" var="usAds">--%>
+<%--                        <option value=${usAds.id}> ${usAds.login} </option>--%>
 <%--                    </c:forEach>--%>
 <%--                </select>--%>
 <%--                <input type='submit' class='buttonEnabled' name='SearchUsr' value='Search by usersAds' />--%>

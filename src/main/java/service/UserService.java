@@ -39,7 +39,7 @@ public class UserService {
     }
 
     public Collection<User> getByUsersFromAds(){  //only Users from have Ads
-        Collection<User> allUser = userDao.getByUsers();
+        Collection<User> allUser = userDao.getUsers();
         Collection<String> inUser = new LinkedHashSet<>();
         Collection<Ad> inUserfromAd = adDao.get();
         Collection<User> out = new ArrayList<>();

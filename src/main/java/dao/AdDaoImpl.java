@@ -132,15 +132,5 @@ public class AdDaoImpl implements AdDao {
         return out;
     }
 
-//    @Override
-//    public User getByUserAds() {
-//        Session s = HibernateUtil.getSession();
-//        User out =(data.User) s.createQuery("userid FROM Ad").list();
-//        s.close();
-//        return out;
-//         }
-    /*
-    select distinct userid  from ad
-     */
 }
 

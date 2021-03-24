@@ -20,7 +20,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Collection<User> getByUsers() {
+    public Collection<User> getUsers() {
         Session s = HibernateUtil.getSession();
         Collection<User> out =  s.createQuery("FROM User").list();
         s.close();

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import service.AdService;
 import service.CityService;
+import service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -24,16 +25,19 @@ public class MainController {
 
     private final CityService cityService;
     private final AdService adService;
-    private Date date;
+    private UserService userService;
+
 
 
     @Autowired
     public MainController(
                            final CityService cityService,
-                           final AdService adService )
+                           final AdService adService,
+                           final UserService userService)
     {
         this.cityService = cityService;
         this.adService   = adService;
+        this.userService = userService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -43,6 +47,7 @@ public class MainController {
         ModelAndView out = new ModelAndView("main");
         out.addObject("title", "OLX main page");
         out.addObject("adCity", cityService.getCities());
+        out.addObject("userAds", userService.getByUsersFromAds());
         String adPage = RedirectPath.ADD_AD_PAGE.getValue();
         out.addObject("pathAddAd", adPage);
         String pathMain = RedirectPath.MAIN_PAGE.getValue();
