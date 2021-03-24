@@ -144,8 +144,9 @@
                         <c:set var="dtAds" value="${adTop.date}"/>
                         <%
                             java.util.Date dateAd=(java.util.Date) pageContext.getAttribute("dtAds");
-                            String today = new SimpleDateFormat("dd-MM-yyyy").format(dateAd);
-                            out.print(today);
+//                            String today = new SimpleDateFormat("dd-MM-yyyy").format(dateAd);
+//                            out.print(today);
+                            out.print(dateAd);
                         %>
                     </td>
                     <td>
@@ -187,8 +188,9 @@
             <td><c:set var="dtAds" value="${ad.date}"/>
                 <%
                     java.util.Date dateAd=(java.util.Date) pageContext.getAttribute("dtAds");
-                    String today = new SimpleDateFormat("dd-MM-yyyy").format(dateAd);
-                    out.print(today);
+//                    String today = new SimpleDateFormat("dd-MM-yyyy").format(dateAd);
+//                    out.print(today);
+                    out.print(dateAd);
                 %>
             </td>
             <td>
