@@ -1,4 +1,5 @@
 <%@ page import="data.Ad" %>
+<%@ page import="data.User" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -73,6 +74,24 @@
     ${ad.phone}<br/>
     ${ad.city}<br/>
     ${ad.email}<br/>
+</c:if>
+
+<c:if test="${user != null}">
+    <c:if test="${messages != null}">
+        <div>
+            <h1>Messages:</h1>
+            <c:forEach items="${messages}" var="m">
+                <c:if test="${user.id == m.toUserId}">Income:</c:if>
+                <c:if test="${user.id == m.fromUserId}">Out:</c:if>
+                <h3>${m.message}</h3>
+            </c:forEach>
+            <form action="${pathEdit}" method='post'>
+                <input type="hidden" name="id" value="${ad.id}">
+                <input type="text" name="message"/>
+                <input type="submit" value="Send">
+            </form>
+        </div>
+    </c:if>
 </c:if>
 
 <form action=${pathMain}  method='GET'>

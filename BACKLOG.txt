@@ -77,8 +77,8 @@ Need to create Spring web project for tomcat web server using
 
 +DEV-032: Add autofill for city, phone, email fields with user's home city;+panarina
 
- DEV-033: Develop messaging system: message table, dao, service, jsp changes of
-        editAd.jsp, handle messaging on editAd.jsp and controller DEP-031;
++DEV-033: Develop messaging system: message table, entity, dao, service, jsp changes of
+        editAd.jsp, handle messaging on editAd.jsp and controller DEP-031; +reznik
 
 +DEV-034: Add column date to ad table and entity, sorting output ad collections by
         that date;+panarina
@@ -98,3 +98,5 @@ Need to create Spring web project for tomcat web server using
 +DEV-039: Add button GoToMainPage in ad screen;+panarina
 
 +DEV-040: Implement disconnect user on main page using MainController get param exit=true;+panarina
+
+ DEV-040: BUG on login page: after incorrect password entered - correct one is not worked;

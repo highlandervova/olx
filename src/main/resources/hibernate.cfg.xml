@@ -13,5 +13,6 @@
         <mapping class="data.Ad"/>
         <mapping class="data.User"/>
         <mapping class="data.City"/>
+        <mapping class="data.Message"/>
     </session-factory>
 </hibernate-configuration>
