@@ -6,6 +6,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
+
 @Component
 public class UserDaoImpl implements UserDao {
 
@@ -17,6 +19,13 @@ public class UserDaoImpl implements UserDao {
         return u;
     }
 
+    @Override
+    public Collection<User> getUsers() {
+        Session s = HibernateUtil.getSession();
+        Collection<User> out =  s.createQuery("FROM User").list();
+        s.close();
+        return out;
+    }
 
 
 

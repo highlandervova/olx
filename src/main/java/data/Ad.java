@@ -171,4 +171,5 @@ public class Ad implements Serializable {
                 ", favor=" + favor +
                 '}';
     }
-}
+
+ }

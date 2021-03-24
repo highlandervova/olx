@@ -2,6 +2,7 @@ package dao;
 
 import data.Ad;
 
+
 import java.util.Collection;
 
 public interface AdDao {
@@ -12,8 +13,7 @@ public interface AdDao {
     Collection<Ad> getByUserId(String userId);
     Collection<Ad> getByCity(String cityId);
     Collection<Ad> getByDescr(String decsr);
-    public Collection<Ad> getFavorTop3();
-    public Collection<Ad> getByFavor();
+    Collection<Ad> getByFavor();
     boolean updateAdDate(String id );
     boolean updateAdFavor(String id);
     boolean deleteAdFavor(String id );
