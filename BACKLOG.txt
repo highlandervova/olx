@@ -100,3 +100,11 @@ Need to create Spring web project for tomcat web server using
 +DEV-040: Implement disconnect user on main page using MainController get param exit=true;+panarina
 
  DEV-040: BUG on login page: after incorrect password entered - correct one is not worked;
+
+ DEV-042: Do code refactor to use only specific DAO in each service, for example - UserService
+        should use just UserDao;
+
+ DEV-043: Add file uploading functionality to add ad process. It should be a button on addAd.jsp
+        called 'Upload Picture' which will open 'upload file from filesystem' window and uploads a
+        picture. First solution: Column picture type should be changed to 'blob' in ad table. Second
+        solution: save picture on server's file system in file named by pattern: adId_DD_MM_YY;
