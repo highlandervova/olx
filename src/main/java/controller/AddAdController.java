@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import service.AdService;
 import service.CityService;
+import service.RubricService;
 import service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,15 +29,18 @@ public class AddAdController {
     private final AdService adService;
     private final CityService cityService;
     private UserService userService;
+    private RubricService rubricService;
 
     public AddAdController(
             AdService adService,
             final CityService cityService,
-            UserService userService) {
+            UserService userService,
+            final RubricService rubricService) {
 
         this.cityService = cityService;
         this.adService = adService;
         this.userService = userService;
+        this.rubricService = rubricService;
     }
 
     @GetMapping
@@ -44,6 +48,7 @@ public class AddAdController {
         ModelAndView out = new ModelAndView("addAd");
         out.addObject("title", "Adding OLX ad");
         out.addObject("pathMain", RedirectPath.MAIN_PAGE.getValue());
+        out.addObject("rubric",rubricService.getRubrics());
         out.addObject("adCity", cityService.getCities());
         User user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
         String cityUserId = user.getCity();

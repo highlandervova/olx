@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import service.AdService;
 import service.CityService;
+import service.RubricService;
 import service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Date;
+
 
 import static enums.SessionAttribute.AUTHENTICATED;
 
@@ -30,6 +30,7 @@ public class MainController {
     private final CityService cityService;
     private final AdService adService;
     private final UserService userService;
+    private final RubricService rubricService;
 
 
 
@@ -37,11 +38,13 @@ public class MainController {
     public MainController(
                            final CityService cityService,
                            final AdService adService,
-                           final UserService userService)
+                           final UserService userService,
+                           final RubricService rubricService)
     {
         this.cityService = cityService;
         this.adService   = adService;
         this.userService = userService;
+        this.rubricService= rubricService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -51,7 +54,7 @@ public class MainController {
         ModelAndView out = new ModelAndView("main");
         out.addObject("title", "OLX main page");
         out.addObject("adCity", cityService.getCities());
-
+        out.addObject("rubrics", rubricService.getRubrics());
         String adPage = RedirectPath.ADD_AD_PAGE.getValue();
         out.addObject("pathAddAd", adPage);
         String pathMain = RedirectPath.MAIN_PAGE.getValue();
@@ -79,6 +82,17 @@ public class MainController {
             );
             out.addObject("notTop", "1");
         }
+        if ( req.getParameter(RequestParameter.RUBRICSEARCH.getValue()) != null )
+        {
+            if (Integer.valueOf(req.getParameter(RequestParameter.RUBRICSEARCH.getValue())) == -1){
+                out.addObject("ads", adService.getAll());
+
+            } else {
+            out.addObject("ads",
+                    adService.getAdsByRubric(Integer.valueOf(req.getParameter(RequestParameter.RUBRICSEARCH.getValue()))));
+                }
+            out.addObject("notTop", "1");
+        }
 
         if ( req.getParameter(RequestParameter.FAVORSEARCH.getValue()) != null )
         {
@@ -90,8 +104,6 @@ public class MainController {
 
         if ( req.getParameter(RequestParameter.USERADSSEARCH.getValue()) != null )
         {
-//            out.addObject("ads",
-//                    adService.getByDescr( req.getParameter(RequestParameter.DESCRSEARCH.getValue())));
             out.addObject("notTop", "1");
         }
 
@@ -99,6 +111,13 @@ public class MainController {
         {
             out.addObject("ads",
                     adService.getByDescr( req.getParameter(RequestParameter.DESCRSEARCH.getValue())));
+            out.addObject("notTop", "1");
+        }
+
+        if ( req.getParameter(RequestParameter.NAMESEARCH.getValue()) != null )
+        {
+            out.addObject("ads",
+                    adService.getByName( req.getParameter(RequestParameter.NAMESEARCH.getValue())));
             out.addObject("notTop", "1");
         }
 

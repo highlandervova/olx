@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import service.AdService;
 import service.CityService;
 import service.MessageService;
+import service.RubricService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,12 +30,15 @@ public class EditAdController {
     private final AdService adService;
     private final CityService cityService;
     private final MessageService messageService;
+    private final RubricService rubricService;
 
     @Autowired
-    public EditAdController(AdService adService, CityService cityService, MessageService messageService) {
+    public EditAdController(AdService adService, CityService cityService,
+                            MessageService messageService, RubricService rubricService) {
         this.adService = adService;
         this.cityService = cityService;
         this.messageService = messageService;
+        this.rubricService = rubricService;
     }
 
     @GetMapping
@@ -49,6 +53,9 @@ public class EditAdController {
                 out.addObject("edit", true);
                 out.addObject("FavorYes", ad.getFavor());
                 out.addObject("cityUser", userFromSession.getCity());
+                out.addObject("rubricAd", ad.getRubric());
+                out.addObject("rubrics",rubricService.getRubrics());
+                out.addObject("otherRubrics", rubricService.getOtherRubrics(ad.getRubric()));
                 out.addObject("otherCities", cityService.getOtherCities(userFromSession.getCity()));
                 out.addObject("messages", messageService.getByAdId(adId));
             }
@@ -75,6 +82,7 @@ public class EditAdController {
                        @RequestParam(required = false) String descr,
                        @RequestParam(required = false) String pic,
                        @RequestParam(required = false) Integer price,
+                       @RequestParam(required = false) Integer rubric,
                        @RequestParam(required = false) String city,
                        @RequestParam(required = false) String email,
                        @RequestParam(required = false) String phone,
@@ -104,6 +112,7 @@ public class EditAdController {
                 ad.setDescr(descr);
                 ad.setPic(pic);
                 ad.setPrice(price);
+                ad.setRubric(rubric);
                 ad.setCity(city);
                 ad.setPhone(phone);
                 ad.setEmail(email);

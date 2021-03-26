@@ -13,6 +13,7 @@ public interface AdDao {
     Collection<Ad> getByUserId(String userId);
     Collection<Ad> getByCity(String cityId);
     Collection<Ad> getByDescr(String decsr);
+    Collection<Ad> getByName(String name);
     Collection<Ad> getByFavor();
     boolean updateAdDate(String id );
     boolean updateAdFavor(String id);
