@@ -73,7 +73,7 @@
             <form method='GET'>
                 <select name='rubricsearch'>
                     <option > rubric? </option>
-                    <c:forEach items="${adRubric}" var="adrubrics">
+                    <c:forEach items="${rubrics}" var="adrubrics">
                        <option value=${adrubrics.id}> ${adrubrics.name} </option>
                     </c:forEach>
                 </select>
@@ -141,7 +141,7 @@
                         <a href="${pathEdit}?adId=${adTop.id}">${adTop.name}</a>
                     </td>
                     <td>
-                        <c:forEach items="${adRubric}" var="adrbc">
+                        <c:forEach items="${rubrics}" var="adrbc">
                             <c:choose>
                                 <c:when test="${adTop.rubric==adrbc.id}">
                                     <p>  ${adrbc.name}</p>
@@ -194,7 +194,7 @@
                 <a href="${pathEdit}?adId=${ad.id}">${ad.name}</a>
             </td>
             <td>
-                <c:forEach items="${adRubric}" var="adrbc">
+                <c:forEach items="${rubrics}" var="adrbc">
                     <c:choose>
                         <c:when test="${ad.rubric==adrbc.id}">
                             <p>  ${adrbc.name}</p>

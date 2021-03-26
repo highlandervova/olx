@@ -18,17 +18,11 @@ public class RubricService {
     }
 
 
-    public Collection<Rubric> getRubrics() {
-        Collection<Rubric> out = rubricDao.get();
-        return out;
-    }
+    public Collection<Rubric> getRubrics() {Collection<Rubric> out = rubricDao.get(); return out; }
 
 
 
-        public Rubric getById(Integer rubricId) {
-       Rubric r = rubricDao.getById(rubricId);
-        return r;
-    }
+        public Rubric getById(Integer rubricId) { Rubric r = rubricDao.getById(rubricId); return r;}
 
     public Collection<Rubric> getOtherRubrics(Integer idAdsRubric){
         Collection<Rubric> out1 = rubricDao.get();

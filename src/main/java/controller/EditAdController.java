@@ -54,7 +54,7 @@ public class EditAdController {
                 out.addObject("FavorYes", ad.getFavor());
                 out.addObject("cityUser", userFromSession.getCity());
                 out.addObject("rubricAd", ad.getRubric());
-                out.addObject("adRubric",rubricService.getRubrics());
+                out.addObject("rubrics",rubricService.getRubrics());
                 out.addObject("otherRubrics", rubricService.getOtherRubrics(ad.getRubric()));
                 out.addObject("otherCities", cityService.getOtherCities(userFromSession.getCity()));
                 out.addObject("messages", messageService.getByAdId(adId));

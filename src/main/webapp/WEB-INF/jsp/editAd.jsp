@@ -19,7 +19,7 @@
         <input name="price" type="number" required placeholder="Price" value="${ad.price}"/><br/>
         Enter rubric:
         <select name="rubric">
-            <c:forEach items="${adRubric}" var="rubricAds">
+            <c:forEach items="${rubrics}" var="rubricAds">
                 <c:choose>
                     <c:when test="${rubricAds.id==rubricAd}" >
                         <option value=${rubricAds.id}> ${rubricAds.name} </option>

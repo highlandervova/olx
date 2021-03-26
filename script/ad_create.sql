@@ -18,10 +18,10 @@ CREATE TABLE public.ad
  ALTER TABLE public.ad
     OWNER to postgres;
 
-ALTER TABLE ad ADD COLUMN date TIMESTAMP;
+ALTER TABLE public.ad ADD COLUMN date TIMESTAMP;
 
-UPDATE ad SET date=current_timestamp WHERE date IS NULL;
+UPDATE public.ad SET date=current_timestamp WHERE date IS NULL;
 
-ALTER TABLE ad ADD COLUMN favor integer;
+ALTER TABLE public.ad ADD COLUMN favor integer;
 
 ALTER TABLE public.ad alter COLUMN date set NOT NULL

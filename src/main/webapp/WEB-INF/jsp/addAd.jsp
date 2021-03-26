@@ -32,11 +32,9 @@
     </select>
     <input name="phone" type="text" required = false placeholder="Phone" value="${phoneUser}"/>
     <input name="email" type="text" required = false placeholder="Email" value="${emailUser}"/>
-<%--    <input name="phone" type="text" required placeholder=${phoneUser}>--%>
-<%--    <input name="email" type="text" required placeholder=${emailUser}>--%>
     Enter rubric:
     <select name="rubric">
-        <c:forEach items="${adRubric}" var="rubrics">
+        <c:forEach items="${rubric}" var="rubrics">
             <option value=${rubrics.id}> ${rubrics.name} </option>
         </c:forEach>
     </select>

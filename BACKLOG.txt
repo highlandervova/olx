@@ -63,14 +63,14 @@ Need to create Spring web project for tomcat web server using
 +DEV-027: Implement city select instead text input: entity, dao, service, change
           controllers, change jsps DEP-024;+panarina
 
- DEV-028: Create dao method getByCategory, service method, main controller logic of
++DEV-028: Create dao method getByCategory, service method, main controller logic of
         get 2 params - searchType and search, main jsp changes to search by category DEP-038;
 
- DEV-029: Create dao method getByName, service method, main controller logic of
++DEV-029: Create dao method getByName, service method, main controller logic of
          get 2 params - searchType and search, main jsp changes to search by name,
-         case insensitive search by part of ad name;
+         case insensitive search by part of ad name;+panarina
 
- DEV-030: Add checkbox to search by description too DEP-029;
++DEV-030: Add checkbox to search by description too DEP-029;+panarina
 
 +DEV-031: Create EditAdController and editAd.jsp to edit ads and RemoveAdController to
         remove an ad;+reznik
@@ -92,14 +92,14 @@ Need to create Spring web project for tomcat web server using
 +DEV-037: Create main controller logic to get param - searchType=myAds, main jsp changes
         to search user's ads;+panarina
 
- DEV-038: Create rubric table with int id, name columns and change where necessary text
-        fields to selects;
++DEV-038: Create rubric table with int id, name columns and change where necessary text
+        fields to selects;+panarina
 
 +DEV-039: Add button GoToMainPage in ad screen;+panarina
 
 +DEV-040: Implement disconnect user on main page using MainController get param exit=true;+panarina
 
- DEV-040: BUG on login page: after incorrect password entered - correct one is not worked;
+ DEV-041: BUG on login page: after incorrect password entered - correct one is not worked;
 
  DEV-042: Do code refactor to use only specific DAO in each service, for example - UserService
         should use just UserDao;

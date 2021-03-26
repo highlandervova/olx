@@ -48,7 +48,7 @@ public class AddAdController {
         ModelAndView out = new ModelAndView("addAd");
         out.addObject("title", "Adding OLX ad");
         out.addObject("pathMain", RedirectPath.MAIN_PAGE.getValue());
-        out.addObject("adRubric",rubricService.getRubrics());
+        out.addObject("rubric",rubricService.getRubrics());
         out.addObject("adCity", cityService.getCities());
         User user = (User) req.getSession().getAttribute(AUTHENTICATED.getValue());
         String cityUserId = user.getCity();

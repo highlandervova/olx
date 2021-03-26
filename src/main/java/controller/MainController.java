@@ -54,7 +54,7 @@ public class MainController {
         ModelAndView out = new ModelAndView("main");
         out.addObject("title", "OLX main page");
         out.addObject("adCity", cityService.getCities());
-        out.addObject("adRubric", rubricService.getRubrics());
+        out.addObject("rubrics", rubricService.getRubrics());
         String adPage = RedirectPath.ADD_AD_PAGE.getValue();
         out.addObject("pathAddAd", adPage);
         String pathMain = RedirectPath.MAIN_PAGE.getValue();
