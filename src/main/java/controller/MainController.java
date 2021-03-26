@@ -84,11 +84,15 @@ public class MainController {
         }
         if ( req.getParameter(RequestParameter.RUBRICSEARCH.getValue()) != null )
         {
+            if (Integer.valueOf(req.getParameter(RequestParameter.RUBRICSEARCH.getValue())) == -1){
+                out.addObject("ads", adService.getAll());
+
+            } else {
             out.addObject("ads",
                     adService.getAdsByRubric(Integer.valueOf(req.getParameter(RequestParameter.RUBRICSEARCH.getValue()))));
+                }
             out.addObject("notTop", "1");
         }
-
 
         if ( req.getParameter(RequestParameter.FAVORSEARCH.getValue()) != null )
         {

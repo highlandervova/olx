@@ -72,7 +72,7 @@
             Enter rubric:
             <form method='GET'>
                 <select name='rubricsearch'>
-                    <option > rubric? </option>
+                    <option value='-1'> rubric? </option>
                     <c:forEach items="${rubrics}" var="adrubrics">
                        <option value=${adrubrics.id}> ${adrubrics.name} </option>
                     </c:forEach>
