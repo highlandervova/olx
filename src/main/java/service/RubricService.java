@@ -10,12 +10,9 @@ import java.util.Collection;
 @Service
 public class RubricService {
     private final RubricDao rubricDao;
-    private  AdService adService;
 
-    public RubricService(RubricDao rubricDao, AdService adService) {
-        this.adService = adService;
-        this.rubricDao = rubricDao;
-    }
+
+    public RubricService(RubricDao rubricDao   ) {  this.rubricDao = rubricDao;}
 
 
     public Collection<Rubric> getRubrics() {Collection<Rubric> out = rubricDao.get(); return out; }

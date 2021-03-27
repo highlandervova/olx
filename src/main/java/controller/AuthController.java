@@ -24,7 +24,7 @@ import static enums.SessionAttribute.AUTHENTICATED;
 @RequestMapping("auth")
 public class AuthController {
 
-    private final UserDao userDao;
+
     private ValidationService validationService;
     private final UserService userService;
 
@@ -32,12 +32,11 @@ public class AuthController {
     @Autowired
     public AuthController(
             final   UserService userService,
-            final UserDao userDao,
             ValidationService validationService
 
     ) {
         super();
-        this.userDao = userDao;
+
         this.validationService = validationService;
         this.userService = userService;
     }
