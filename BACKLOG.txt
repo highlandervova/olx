@@ -108,3 +108,31 @@ Need to create Spring web project for tomcat web server using
         called 'Upload Picture' which will open 'upload file from filesystem' window and uploads a
         picture. First solution: Column picture type should be changed to 'blob' in ad table. Second
         solution: save picture on server's file system in file named by pattern: adId_DD_MM_YY;
+
+ DEV-044: Implement users roles for security needs: Create role table with id,
+        name, integer level columns, entity and dao for it. Fill that table with 3 roles: GUEST with
+        level 1, ADMIN with level 8 and USER with level 3. Add column integer rolelevel to user table
+        and fill all existing users with level 3. Also add functionality to set level 3 for every
+        new registered users.
+
+ DEV-045: Implement resource mapping for security needs: Create resourcemapping table with id, resource,
+        method, integer level columns, entity and dao for it. Fill that table with all resources we have
+        with level 3. For
+        example: if we have editAd url - it means that we have editAd resource. If our logic cover functions
+        show, edit and delete - it means that methods in table will be show, edit and delete. All that means
+        that for editAd resource will be 3 records in resourcemapping table. Dao for this table should have
+        methods getByResourceAndMethod, getByResource. Also create Resource and Method enums. Mark all
+        controllers with Resource enum record as private final Resource resource.
+
+ DEV-046: Change logic of our security from simple check is user in session to check with new SecurityService
+         with method boolean hasResourceAccess(Resource resource, int level); This
+         method should ask dao directly using getByResource and if level lower then ResourceMapping's
+         level for requested operation - should return false. otherwise should return true. Also if user
+         is not in the session - place guest user to session. For that create method createGuestUser in
+         UserService. DEP-044 DEP-045
+
+ DEV-047: Create method boolean hasAccess(Resource resource, Method Method, int level) in SecurityService. This
+        method should ask dao directly using getByResourceAndMethod and if level lower then ResourceMapping's
+        level for requested operation - should return false. otherwise should return true. Use new mappings created
+        before to decide using new hasAccess method is user has access to, for example, edit ad
+        or send message. Do it in every service where we have some changing dao requests. DEP-044 DEP-045
