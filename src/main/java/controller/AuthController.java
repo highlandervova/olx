@@ -68,7 +68,7 @@ public class AuthController {
         if (validationService.validateAuthentication(login, pass)) {
             req.getSession().setAttribute(AUTHENTICATED.getValue(), userService.getByLogin(login));
             resp.sendRedirect(RedirectPath.MAIN_REDIRECT.getValue());
-            }
+            }else {resp.sendRedirect(RedirectPath.LOGIN_PAGE.getValue());}
 
         return out2;
     }
