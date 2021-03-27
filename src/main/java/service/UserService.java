@@ -17,13 +17,15 @@ import java.util.UUID;
 public class UserService {
 
     private final UserDao userDao;
-    private AdDao adDao;
+    private AdService adService;
+
 
     public UserService(UserDao userDao,
-                       AdDao adDao) {
+                       AdService adService
+    ) {
         this.userDao = userDao;
-        this.adDao   = adDao;
-    }
+        this.adService = adService;
+       }
 
     public void addNewUser(String login, String pass, String city, String phone, String email) {
 
@@ -41,7 +43,7 @@ public class UserService {
     public Collection<User> getByUsersFromAds(){  //only Users from have Ads
         Collection<User> allUser = userDao.getUsers();
         Collection<String> inUser = new LinkedHashSet<>();
-        Collection<Ad> inUserfromAd = adDao.get();
+        Collection<Ad> inUserfromAd = adService.getAll();
         Collection<User> out = new ArrayList<>();
         for (Ad u: inUserfromAd) {
             inUser.add(u.getUserId());

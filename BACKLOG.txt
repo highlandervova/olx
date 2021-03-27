@@ -101,8 +101,8 @@ Need to create Spring web project for tomcat web server using
 
  DEV-041: BUG on login page: after incorrect password entered - correct one is not worked;
 
- DEV-042: Do code refactor to use only specific DAO in each service, for example - UserService
-        should use just UserDao;
++DEV-042: Do code refactor to use only specific DAO in each service, for example - UserService
+        should use just UserDao;+panarina
 
  DEV-043: Add file uploading functionality to add ad process. It should be a button on addAd.jsp
         called 'Upload Picture' which will open 'upload file from filesystem' window and uploads a

@@ -26,7 +26,7 @@ import static enums.SessionAttribute.AUTHENTICATED;
 @RequestMapping("reg")
 public class RegController {
 
-    private final UserDao userDao;
+
     private ValidationService validationService;
     private final UserService userService;
     private final CityService cityService;
@@ -34,13 +34,12 @@ public class RegController {
     @Autowired
     public RegController(
             final   UserService userService,
-            final UserDao userDao,
             ValidationService validationService,
             CityService cityService
 
     ) {
         super();
-        this.userDao = userDao;
+
         this.validationService = validationService;
         this.userService = userService;
         this.cityService = cityService;
