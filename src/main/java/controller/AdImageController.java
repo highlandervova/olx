@@ -18,6 +18,11 @@ import java.util.Base64;
 @Controller
 @RequestMapping("olx_war/adImage")
 public class AdImageController {
+
+    private final AdService adService;
+    @Autowired
+    public AdImageController(AdService adService) { this.adService = adService;}
+
     @RequestMapping(value = "/imageDisplay", method = RequestMethod.GET)
     public void showImage(HttpServletResponse resp, HttpServletRequest req,
                           @RequestParam(name = "adId", required = true) String adId) throws IOException {
@@ -33,13 +38,4 @@ public class AdImageController {
         //req.getSession().setAttribute("url",url);
 
     }
-
-        private final AdService adService;
-
-
-    @Autowired
-    public AdImageController(AdService adService) { this.adService = adService;}
-
-
-
 }
