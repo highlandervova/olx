@@ -13,6 +13,7 @@ public enum RequestParameter {
     PIC         ("pic"),
     PRICE       ("price"),
     RUBRIC      ("rubric"),
+    IDAD        ("idAd"),
     TYPE        ("type"),
     CITYSEARCH  ("citysearch"),
     USERADSSEARCH ("usersearch"),
@@ -20,6 +21,7 @@ public enum RequestParameter {
     NAMESEARCH   ("namesearch"),
     FAVORSEARCH  ("favorsearch"),
     DESCRSEARCH ("descrsearch"),
+    UPLOADFILE   ("uploadfile"),
     REDIRECTS    ("redirects"),
     LOGOFF       ("logoff");
 

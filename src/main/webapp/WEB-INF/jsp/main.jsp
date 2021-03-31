@@ -131,6 +131,7 @@
         <th>EMAIL</th>
         <th>DATE</th>
         <th>FAVORITE</th>
+        <th>IMG_BLOB</th>
     </tr>
 
     <c:choose>
@@ -182,6 +183,13 @@
                         </c:choose>
 
                     </td>
+                    <td>
+                        <p>  ${adTop.id}</p>
+                       <br/>
+                        <img src="olx_war/adImage/imageDisplay?adId=${adTop.id}" width="120" height="150" alt="No image" />
+                        <br/>
+                  </td>
+
                 </tr>
             </c:forEach>
 
@@ -232,6 +240,17 @@
                         <img style='width: 25px;' src='http://i.piccy.info/i9/bdfebd1d105afe669c3904391b4d2b2b/1616363027/19124/1415872/star.jpg' alt='YES'/>
                     </c:when>
                 </c:choose>
+
+            </td>
+            <td>
+
+
+                <p>  ${ad.id}</p>
+                <br/>
+                <img src="olx_war/adImage/imageDisplay?adId=${ad.id}" width="200" height="100" alt="No image" />
+                <br/>
+
+
 
             </td>
         </tr>
