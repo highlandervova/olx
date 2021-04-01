@@ -20,4 +20,5 @@ public interface AdDao {
     boolean deleteAdFavor(String id );
     void edit(Ad ad);
     void remove(Ad ad);
+    void updateBytea(String id, byte[] fis);
 }

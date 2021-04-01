@@ -1,10 +1,10 @@
 package data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.Type;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Blob;
 import java.util.Date;
 import java.util.Objects;
 
@@ -27,10 +27,13 @@ public class Ad implements Serializable {
     private Date date;
     private Integer favor;
 
+    @Column(name="clobfield")
+    private byte[] clobfield;
+
     public Ad() {
     }
 
-    public Ad(String id, String name, String descr, String pic, Integer price, String userId, String city, String phone, String email, Integer rubric, Date date, Integer favor) {
+    public Ad(String id, String name, String descr, String pic, Integer price, String userId, String city, String phone, String email, Integer rubric, Date date, Integer favor, byte[] clobfield) {
         this.id = id;
         this.name = name;
         this.descr = descr;
@@ -132,6 +135,16 @@ public class Ad implements Serializable {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public byte[] getClobfield() {
+        return clobfield;
+    }
+
+    public void setClobfield(byte[] clobfield) {
+        this.clobfield = clobfield;
+    }
+
+
 
     public Integer getFavor() {
         return favor;

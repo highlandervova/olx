@@ -14,6 +14,7 @@ public class AdService {
         this.adDao = adDao;
     }
 
+
     public Ad add(Ad ad) {
         adDao.add(ad);
         return ad;
@@ -125,4 +126,8 @@ public class AdService {
     public void deleteFavorite(String adId) {
         adDao.deleteAdFavor(adId);
     }
+    public void updateImg(String id, byte[] fis) {adDao.updateBytea(id,fis);}
+
+
+
 }

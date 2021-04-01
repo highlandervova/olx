@@ -24,4 +24,6 @@ UPDATE public.ad SET date=current_timestamp WHERE date IS NULL;
 
 ALTER TABLE public.ad ADD COLUMN favor integer;
 
-ALTER TABLE public.ad alter COLUMN date set NOT NULL
+ALTER TABLE public.ad alter COLUMN date set NOT NULL;
+
+ALTER TABLE public.AD ADD clobfield bytea;
