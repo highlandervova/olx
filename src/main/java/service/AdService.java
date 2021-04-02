@@ -3,6 +3,7 @@ package service;
 import dao.AdDao;
 import data.Ad;
 import org.springframework.stereotype.Service;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -13,6 +14,7 @@ public class AdService {
     public AdService(AdDao adDao) {
         this.adDao = adDao;
     }
+
 
     public Ad add(Ad ad) {
         adDao.add(ad);
@@ -125,4 +127,8 @@ public class AdService {
     public void deleteFavorite(String adId) {
         adDao.deleteAdFavor(adId);
     }
+    public void updateImg(String id, byte[] fis) {adDao.updatePicture(id,fis);}
+
+
+
 }

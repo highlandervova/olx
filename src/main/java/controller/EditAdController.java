@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import service.AdService;
-import service.CityService;
-import service.MessageService;
-import service.RubricService;
+import service.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -31,14 +28,17 @@ public class EditAdController {
     private final CityService cityService;
     private final MessageService messageService;
     private final RubricService rubricService;
+    private final FileService fileService;
 
     @Autowired
     public EditAdController(AdService adService, CityService cityService,
-                            MessageService messageService, RubricService rubricService) {
+                            MessageService messageService, RubricService rubricService,
+                            FileService fileService) {
         this.adService = adService;
         this.cityService = cityService;
         this.messageService = messageService;
         this.rubricService = rubricService;
+        this.fileService = fileService;
     }
 
     @GetMapping
@@ -48,13 +48,13 @@ public class EditAdController {
         Ad ad = adService.getById(adId);
         if (ad != null) {
             ModelAndView out = new ModelAndView("editAd");
-
+            out.addObject("pathUpload", RedirectPath.UPLOAD_PAGE.getValue());
             if (userFromSession != null && userFromSession.getId().equals(ad.getUserId())) {
                 out.addObject("edit", true);
                 out.addObject("FavorYes", ad.getFavor());
                 out.addObject("cityUser", userFromSession.getCity());
                 out.addObject("rubricAd", ad.getRubric());
-                out.addObject("rubrics",rubricService.getRubrics());
+                out.addObject("rubrics", rubricService.getRubrics());
                 out.addObject("otherRubrics", rubricService.getOtherRubrics(ad.getRubric()));
                 out.addObject("otherCities", cityService.getOtherCities(userFromSession.getCity()));
                 out.addObject("messages", messageService.getByAdId(adId));
@@ -74,7 +74,6 @@ public class EditAdController {
             return null;
         }
     }
-
     @PostMapping
     public void editAd(HttpServletRequest req, HttpServletResponse resp,
                        @RequestParam String id,
@@ -92,9 +91,15 @@ public class EditAdController {
                        @RequestParam(required = false) String setTop,
                        @RequestParam(required = false) String delete,
                        @RequestParam(required = false) String message) throws IOException {
+
         User userFromSession = (User) req.getSession(false).getAttribute(AUTHENTICATED.getValue());
         Ad ad = adService.getById(id);
+
+
         if (userFromSession != null && ad != null && userFromSession.getId().equals(ad.getUserId())) {
+
+
+
             if ("true".equals(setFavor)) {
                 adService.updateFavorite(id);
             }
@@ -110,7 +115,7 @@ public class EditAdController {
             if ("true".equals(edit)) {
                 ad.setName(name);
                 ad.setDescr(descr);
-                ad.setPic(pic);
+               // ad.setPictype(pic);
                 ad.setPrice(price);
                 ad.setRubric(rubric);
                 ad.setCity(city);
@@ -153,3 +158,4 @@ public class EditAdController {
         resp.sendRedirect(RedirectPath.MAIN_REDIRECT.getValue());
     }
 }
+

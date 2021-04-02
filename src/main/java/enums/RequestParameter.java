@@ -10,9 +10,10 @@ public enum RequestParameter {
     EMAIL       ("email"),
     NAME        ("name"),
     DESCR       ("descr"),
-    PIC         ("pic"),
+    PICTYPE         ("pictype"),
     PRICE       ("price"),
     RUBRIC      ("rubric"),
+    IDAD        ("idAd"),
     TYPE        ("type"),
     CITYSEARCH  ("citysearch"),
     USERADSSEARCH ("usersearch"),
@@ -20,6 +21,7 @@ public enum RequestParameter {
     NAMESEARCH   ("namesearch"),
     FAVORSEARCH  ("favorsearch"),
     DESCRSEARCH ("descrsearch"),
+    UPLOADFILE   ("uploadfile"),
     REDIRECTS    ("redirects"),
     LOGOFF       ("logoff");
 

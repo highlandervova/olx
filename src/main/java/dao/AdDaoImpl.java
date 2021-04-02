@@ -31,6 +31,7 @@ public class AdDaoImpl implements AdDao {
 
 
 
+
     @Override
     public Collection<Ad> get() {
         Session s = HibernateUtil.getSession();
@@ -89,6 +90,20 @@ public class AdDaoImpl implements AdDao {
         s.getTransaction().commit();
         s.close();
     }
+
+
+    @Override
+    public void updatePicture(String id, byte[] fis) {
+
+        Ad ad = getById(id);
+        Session s = HibernateUtil.getSession();
+        s.beginTransaction();
+        ad.setPicture(fis);
+        s.update(ad);
+        s.getTransaction().commit();
+        s.close();
+    }
+
 
     @Override
     public void remove(Ad ad) {

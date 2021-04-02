@@ -13,7 +13,7 @@
 
     <input name="name" type="text" required placeholder="Name">
     <input name="descr" type="text" required placeholder="Description">
-    <input name="pic" type="text" required placeholder="Picture">
+<%--    <input name="pic" type="text" required placeholder="Picture">--%>
     <input name="price" type="number" required placeholder="Price"/>
 
     Enter city:

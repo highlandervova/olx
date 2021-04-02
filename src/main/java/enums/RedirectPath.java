@@ -9,7 +9,8 @@ public enum RedirectPath {
     REG_PAGE("/olx_war/reg"),
     ADD_AD_PAGE("/olx_war/addAd"),
     EDIT_USER("/olx_war/editUser"),
-    EDIT_AD("/olx_war/editAd");
+    EDIT_AD("/olx_war/editAd"),
+    UPLOAD_PAGE("/olx_war/uploadAd");
 
 
     private RedirectPath(String value) {

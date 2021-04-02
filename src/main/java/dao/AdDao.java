@@ -2,7 +2,6 @@ package dao;
 
 import data.Ad;
 
-
 import java.util.Collection;
 
 public interface AdDao {
@@ -20,4 +19,5 @@ public interface AdDao {
     boolean deleteAdFavor(String id );
     void edit(Ad ad);
     void remove(Ad ad);
+    void updatePicture(String id, byte[] fis);
 }
