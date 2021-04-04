@@ -109,6 +109,7 @@ Need to create Spring web project for tomcat web server using
         picture. First solution: Column picture type should be changed to 'blob' in ad table. Second
         solution: save picture on server's file system in file named by pattern: adId_DD_MM_YY;+panarina
 
+
  DEV-044: Implement users roles for security needs: Create role table with id,
         name, integer level columns, entity and dao for it. Fill that table with 3 roles: GUEST with
         level 1, ADMIN with level 8 and USER with level 3. Add column integer rolelevel to user table

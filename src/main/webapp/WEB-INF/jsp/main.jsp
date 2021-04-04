@@ -7,7 +7,6 @@
 <html>
 <head>
     <style type='text/css'>
-
         .br1{border-radius:35% 0 0 0;}
         .br2{border-radius:0 35% 0 0;}
         TABLE#maintable { border-collapse: collapse; border-radius:35px;}

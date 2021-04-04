@@ -21,14 +21,8 @@
 
 <form  method='post' enctype = 'multipart/form-data'>
     <input type="hidden" value="${ad.id}" name="id"/>
-
-
-
-
     <br/>
     <br/>
-
-
     <div>
         <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
         <input type="file" id="image_uploads" name="file"  multiple>

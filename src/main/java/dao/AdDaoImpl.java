@@ -21,6 +21,7 @@ public class AdDaoImpl implements AdDao {
         s.close();
     }
 
+
     @Override
     public Ad getById(String id) {
         Session s = HibernateUtil.getSession();

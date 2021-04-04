@@ -21,3 +21,4 @@ public interface AdDao {
     void remove(Ad ad);
     void updatePicture(String id, byte[] fis);
 }
+

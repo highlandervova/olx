@@ -1,5 +1,6 @@
 package enums;
 
+
 public enum RequestParameter {
     LOGIN       ("login"),
     PASS        ("pass"),

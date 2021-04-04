@@ -30,7 +30,6 @@ public class FileService {
              return   filName.substring(filName.lastIndexOf(".")+1);
 
     }
-
     public boolean checkFileExtend (String filName) {
         if ( (filName.substring(filName.lastIndexOf(".")) != "-1")
                 || (filName.substring(filName.lastIndexOf(".")) != "0"))
