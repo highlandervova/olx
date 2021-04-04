@@ -22,15 +22,17 @@ ALTER TABLE public.ad ADD COLUMN date TIMESTAMP;
 
 UPDATE public.ad SET date=current_timestamp WHERE date IS NULL;
 
-ALTER TABLE public.ad ADD COLUMN favor integer;
+ALTER TABLE public.ad ADD
+
+    COLUMN favor integer;
 
 ALTER TABLE public.ad alter COLUMN date set NOT NULL;
 
-update public.ad set picture=null;
-ALTER TABLE public.ad
-ALTER COLUMN pictypeNew type  varchar;
+update public.ad set pic=null;
 
-ALTER TABLE public.ad drop column pictype
+ALTER TABLE public.ad ADD pictypeNew   varchar;
+
+ALTER TABLE public.ad drop column pic;
 
 ALTER TABLE public.ad RENAME COLUMN pictypeNew to pictype;
 
