@@ -1,8 +1,6 @@
 package enums;
 
 public enum RedirectPath {
-
-
     MAIN_PAGE("/olx_war/main"),
     MAIN_REDIRECT("main"),
     LOGIN_PAGE("/olx_war/auth"),
@@ -10,7 +8,7 @@ public enum RedirectPath {
     ADD_AD_PAGE("/olx_war/addAd"),
     EDIT_USER("/olx_war/editUser"),
     EDIT_AD("/olx_war/editAd"),
-    UPLOAD_PAGE ("/olx_war/uploadAd");
+    UPLOAD_PAGE("/olx_war/uploadAd");
 
 
     private RedirectPath(String value) {

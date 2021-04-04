@@ -15,7 +15,8 @@
         <input type="hidden" value="${ad.id}" name="id"/>
         <input name="name" type="text" required placeholder="Name" value="${ad.name}"/><br/>
         <input name="descr" type="text" required placeholder="Description" value="${ad.descr}"/><br/>
-        <input name="pic" type="text" required placeholder="Picture" value="${ad.pic}"/><br/>
+<%--        <input name="pic" type="text" required placeholder="Picture" value="${ad.pic}"/><br/>--%>
+
         <input name="price" type="number" required placeholder="Price" value="${ad.price}"/><br/>
         Enter rubric:
         <select name="rubric">
@@ -83,7 +84,7 @@
         <c:when test="${FavorYes!='1'}" >
             <form action="${pathEdit}" method='post'>
                 <input type="hidden" value="${ad.id}" name="id"/>
-                <input type="hidden" value="" name="file"/>
+<%--                <input type="hidden" value="" name="file"/>--%>
                 <input type="hidden" name="setFavor" value="true"/>
                 <input type='submit' value='Favorite Ad'/>
             </form>
@@ -93,7 +94,7 @@
         <c:when test="${FavorYes=='1'}" >
             <form action="${pathEdit}" method='post'>
                 <input type="hidden" value="${ad.id}" name="id"/>
-                <input type="hidden" value="" name="file"/>
+<%--                <input type="hidden" value="" name="file"/>--%>
                 <input type="hidden" name="delFavor" value="true"/>
                 <input type='submit' value='Delete Favorite'/>
             </form>
@@ -104,7 +105,8 @@
 <c:if test="${!edit}">
     ${ad.name}<br/>
     ${ad.descr}<br/>
-    <img src="${ad.pic}" alt="No Picture"/><br/>
+<%--    <img src="${ad.pic}" alt="No Picture"/><br/>--%>
+    <img src="olx_war/adImage/imageDisplay?adId=${ad.id}" width="120" height="150" alt="No image" />
     ${ad.price}&nbsp;USD<br/>
     ${ad.phone}<br/>
     ${ad.city}<br/>
@@ -124,7 +126,7 @@
             </c:forEach>
             <form action="${pathEdit}" method='post'>
                 <input type="hidden" name="id" value="${ad.id}">
-                <input type="file" value="" name="file"/>
+<%--                <input type="file" value="" name="file"/>--%>
                 <input type="text" name="message"/>
                 <input type="submit" value="Send">
             </form>

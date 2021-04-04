@@ -21,6 +21,7 @@ public class AdDaoImpl implements AdDao {
         s.close();
     }
 
+
     @Override
     public Ad getById(String id) {
         Session s = HibernateUtil.getSession();
@@ -93,12 +94,12 @@ public class AdDaoImpl implements AdDao {
 
 
     @Override
-    public void updateBytea(String id, byte[] fis) {
+    public void updatePicture(String id, byte[] fis) {
 
         Ad ad = getById(id);
         Session s = HibernateUtil.getSession();
         s.beginTransaction();
-        ad.setClobfield(fis);
+        ad.setPicture(fis);
         s.update(ad);
         s.getTransaction().commit();
         s.close();

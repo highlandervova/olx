@@ -1,5 +1,6 @@
 package controller;
 
+
 import data.Ad;
 import data.Message;
 import data.User;
@@ -118,7 +119,7 @@ public class EditAdController {
             if ("true".equals(edit)) {
                 ad.setName(name);
                 ad.setDescr(descr);
-                ad.setPic(pic);
+               // ad.setPictype(pic);
                 ad.setPrice(price);
                 ad.setRubric(rubric);
                 ad.setCity(city);

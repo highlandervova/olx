@@ -3,17 +3,15 @@ package controller;
 import data.Ad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import service.*;
+import service.AdService;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Base64;
+
 
 @Controller
 @RequestMapping("olx_war/adImage")
@@ -28,8 +26,8 @@ public class AdImageController {
                           @RequestParam(name = "adId", required = true) String adId) throws IOException {
 
         Ad ad = adService.getById(adId);
-        resp.setContentType("image/jepg, image/png, image/gif");
-        byte[] imgBytes = ad.getClobfield();
+        resp.setContentType(ad.getPicType());
+        byte[] imgBytes = ad.getPicture();
         resp.getOutputStream().write(imgBytes);
 
         resp.getOutputStream().flush(); //close();

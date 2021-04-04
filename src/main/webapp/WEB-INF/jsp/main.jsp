@@ -7,7 +7,6 @@
 <html>
 <head>
     <style type='text/css'>
-
         .br1{border-radius:35% 0 0 0;}
         .br2{border-radius:0 35% 0 0;}
         TABLE#maintable { border-collapse: collapse; border-radius:35px;}
@@ -131,7 +130,7 @@
         <th>EMAIL</th>
         <th>DATE</th>
         <th>FAVORITE</th>
-        <th>IMG_BLOB</th>
+
     </tr>
 
     <c:choose>
@@ -152,7 +151,10 @@
                     </td>
                     <td><h2>${adTop.price}</h2> <h4>USD</h4></td>
                     <td>${adTop.descr}</td>
-                    <td><img style='width: 100px;' src='${adTop.pic}' alt='No Picture'/></td>
+                    <td>
+                        <img src="olx_war/adImage/imageDisplay?adId=${adTop.id}" width="120" height="80" alt="No image" />
+
+                    </td>
                     <td>
                         <a href='main?type=${adTop.city}'>
 
@@ -183,12 +185,7 @@
                         </c:choose>
 
                     </td>
-                    <td>
-                        <p>  ${adTop.id}</p>
-                       <br/>
-                        <img src="olx_war/adImage/imageDisplay?adId=${adTop.id}" width="120" height="150" alt="No image" />
-                        <br/>
-                  </td>
+
 
                 </tr>
             </c:forEach>
@@ -213,7 +210,9 @@
             </td>
             <td><h2>${ad.price}</h2> <h4>USD</h4></td>
             <td>${ad.descr}</td>
-            <td><img style='width: 100px;' src='${ad.pic}' alt='No Picture'/></td>
+            <td>
+                <img src="olx_war/adImage/imageDisplay?adId=${ad.id}" width="120" height="80" alt="No image" />
+            </td>
             <td>
                 <a href='main?type=${ad.city}'>
 
@@ -242,17 +241,7 @@
                 </c:choose>
 
             </td>
-            <td>
 
-
-                <p>  ${ad.id}</p>
-                <br/>
-                <img src="olx_war/adImage/imageDisplay?adId=${ad.id}" width="200" height="100" alt="No image" />
-                <br/>
-
-
-
-            </td>
         </tr>
     </c:forEach>
 </table>

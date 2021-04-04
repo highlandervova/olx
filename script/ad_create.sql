@@ -22,8 +22,18 @@ ALTER TABLE public.ad ADD COLUMN date TIMESTAMP;
 
 UPDATE public.ad SET date=current_timestamp WHERE date IS NULL;
 
-ALTER TABLE public.ad ADD COLUMN favor integer;
+ALTER TABLE public.ad ADD
+
+    COLUMN favor integer;
 
 ALTER TABLE public.ad alter COLUMN date set NOT NULL;
 
-ALTER TABLE public.AD ADD clobfield bytea;
+update public.ad set pic=null;
+
+ALTER TABLE public.ad ADD pictypeNew   varchar;
+
+ALTER TABLE public.ad drop column pic;
+
+ALTER TABLE public.ad RENAME COLUMN pictypeNew to pictype;
+
+ALTER TABLE public.AD ADD picture bytea;

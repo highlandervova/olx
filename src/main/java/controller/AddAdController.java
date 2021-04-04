@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
-
 import static enums.SessionAttribute.AUTHENTICATED;
 
 @Controller
@@ -70,7 +69,7 @@ public class AddAdController {
             Ad ad = new Ad();
             ad.setName(req.getParameter(RequestParameter.NAME.getValue()));
             ad.setDescr(req.getParameter(RequestParameter.DESCR.getValue()));
-            ad.setPic(req.getParameter(RequestParameter.PIC.getValue()));
+          //  ad.setPicType(req.getParameter(RequestParameter.PICTYPE.getValue()));
             ad.setPrice(Integer.parseInt(req.getParameter(RequestParameter.PRICE.getValue())));
             ad.setUserId(userFromSession.getId());
             ad.setCity(req.getParameter(RequestParameter.CITY.getValue()));

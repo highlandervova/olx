@@ -126,7 +126,7 @@ public class AdService {
     public void deleteFavorite(String adId) {
         adDao.deleteAdFavor(adId);
     }
-    public void updateImg(String id, byte[] fis) {adDao.updateBytea(id,fis);}
+    public void updateImg(String id, byte[] fis) {adDao.updatePicture(id,fis);}
 
 
 

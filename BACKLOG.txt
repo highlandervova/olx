@@ -104,11 +104,11 @@ Need to create Spring web project for tomcat web server using
 +DEV-042: Do code refactor to use only specific DAO in each service, for example - UserService
         should use just UserDao;+panarina
 
-
 +DEV-043: Add file uploading functionality to add ad process. It should be a button on addAd.jsp
         called 'Upload Picture' which will open 'upload file from filesystem' window and uploads a
         picture. First solution: Column picture type should be changed to 'blob' in ad table. Second
         solution: save picture on server's file system in file named by pattern: adId_DD_MM_YY;+panarina
+
 
  DEV-044: Implement users roles for security needs: Create role table with id,
         name, integer level columns, entity and dao for it. Fill that table with 3 roles: GUEST with
@@ -118,9 +118,9 @@ Need to create Spring web project for tomcat web server using
 
  DEV-045: Implement resource mapping for security needs: Create resourcemapping table with id, resource,
         method, integer level columns, entity and dao for it. Fill that table with all resources we have
-        with level 3 except main page and register and login pages fill with level 1. For
+        with level 3. For
         example: if we have editAd url - it means that we have editAd resource. If our logic cover functions
-        show, edit and delete - it means that methods in table will be load, edit and delete. All that means
+        show, edit and delete - it means that methods in table will be show, edit and delete. All that means
         that for editAd resource will be 3 records in resourcemapping table. Dao for this table should have
         methods getByResourceAndMethod, getByResource. Also create Resource and Method enums. Mark all
         controllers with Resource enum record as private final Resource resource.
@@ -137,5 +137,3 @@ Need to create Spring web project for tomcat web server using
         level for requested operation - should return false. otherwise should return true. Use new mappings created
         before to decide using new hasAccess method is user has access to, for example, edit ad
         or send message. Do it in every service where we have some changing dao requests. DEP-044 DEP-045
-
- DEV-048: Add styles to main and other pages;

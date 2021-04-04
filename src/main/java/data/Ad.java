@@ -1,10 +1,11 @@
 package data;
 
-import org.hibernate.annotations.Type;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Blob;
 import java.util.Date;
 import java.util.Objects;
 
@@ -15,7 +16,6 @@ public class Ad implements Serializable {
     private String id;
     private String name;
     private String descr;
-    private String pic;
     private Integer price;
     @Column(name = "userid")
     private String userId;
@@ -27,17 +27,17 @@ public class Ad implements Serializable {
     private Date date;
     private Integer favor;
 
-    @Column(name="clobfield")
-    private byte[] clobfield;
-
+    @Column(name="picture")
+    private byte[] picture;
+    private String pictype;
     public Ad() {
     }
 
-    public Ad(String id, String name, String descr, String pic, Integer price, String userId, String city, String phone, String email, Integer rubric, Date date, Integer favor, byte[] clobfield) {
+    public Ad(String id, String name, String descr, String pictype, Integer price, String userId, String city, String phone, String email, Integer rubric, Date date, Integer favor, byte[] clobfield) {
         this.id = id;
         this.name = name;
         this.descr = descr;
-        this.pic = pic;
+        this.pictype = pictype;
         this.price = price;
         this.userId = userId;
         this.city = city;
@@ -72,12 +72,12 @@ public class Ad implements Serializable {
         this.descr = descr;
     }
 
-    public String getPic() {
-        return pic;
+    public String getPicType() {
+        return pictype;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic;
+    public void setPicType(String pic) {
+        this.pictype = pic;
     }
 
     public Integer getPrice() {
@@ -136,12 +136,12 @@ public class Ad implements Serializable {
         this.date = date;
     }
 
-    public byte[] getClobfield() {
-        return clobfield;
+    public byte[] getPicture() {
+        return picture;
     }
 
-    public void setClobfield(byte[] clobfield) {
-        this.clobfield = clobfield;
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 
 
@@ -159,12 +159,12 @@ public class Ad implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ad ad = (Ad) o;
-        return Objects.equals(id, ad.id) && Objects.equals(name, ad.name) && Objects.equals(descr, ad.descr) && Objects.equals(pic, ad.pic) && Objects.equals(price, ad.price) && Objects.equals(userId, ad.userId) && Objects.equals(city, ad.city) && Objects.equals(phone, ad.phone) && Objects.equals(email, ad.email) && Objects.equals(rubric, ad.rubric) && Objects.equals(date, ad.date) && Objects.equals(favor, ad.favor);
+        return Objects.equals(id, ad.id) && Objects.equals(name, ad.name) && Objects.equals(descr, ad.descr) && Objects.equals(pictype, ad.pictype) && Objects.equals(price, ad.price) && Objects.equals(userId, ad.userId) && Objects.equals(city, ad.city) && Objects.equals(phone, ad.phone) && Objects.equals(email, ad.email) && Objects.equals(rubric, ad.rubric) && Objects.equals(date, ad.date) && Objects.equals(favor, ad.favor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, descr, pic, price, userId, city, phone, email, rubric, date, favor);
+        return Objects.hash(id, name, descr, pictype, price, userId, city, phone, email, rubric, date, favor);
     }
 
     @Override
@@ -173,7 +173,7 @@ public class Ad implements Serializable {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", descr='" + descr + '\'' +
-                ", pic='" + pic + '\'' +
+                ", pic='" + pictype + '\'' +
                 ", price=" + price +
                 ", userId='" + userId + '\'' +
                 ", city='" + city + '\'' +

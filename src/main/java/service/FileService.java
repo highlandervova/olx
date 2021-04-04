@@ -12,8 +12,7 @@ public class FileService {
     private final AdDao adDao;
 
     public FileService(AdDao adDao) {
-        this.adDao = adDao;
-    }
+        this.adDao = adDao;    }
 
     public byte[] toByte(InputStream is) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -24,4 +23,22 @@ public class FileService {
         }
         return baos.toByteArray();
     }
+
+
+    public String getFileExtend(String filName){
+
+             return   filName.substring(filName.lastIndexOf(".")+1);
+
+    }
+    public boolean checkFileExtend (String filName) {
+        if ( (filName.substring(filName.lastIndexOf(".")) != "-1")
+                || (filName.substring(filName.lastIndexOf(".")) != "0"))
+    {
+
+            return true;
+        }
+        return false;
+    }
+
+
 }
