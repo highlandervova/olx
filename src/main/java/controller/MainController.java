@@ -64,6 +64,7 @@ public class MainController {
         out.addObject("pathAddAd", adPage);
         String pathMain = RedirectPath.MAIN_PAGE.getValue();
         out.addObject("pathMain", pathMain);
+        out.addObject("pathHead", RedirectPath.HEAD_PATH.getValue());
         String pathReg = RedirectPath.REG_PAGE.getValue();
         out.addObject("pathReg", pathReg);
         String pathAuth = RedirectPath.LOGIN_PAGE.getValue();
