@@ -137,3 +137,9 @@ Need to create Spring web project for tomcat web server using
         level for requested operation - should return false. otherwise should return true. Use new mappings created
         before to decide using new hasAccess method is user has access to, for example, edit ad
         or send message. Do it in every service where we have some changing dao requests. DEP-044 DEP-045
+
+ DEV-048: Add styles to jsps;
+
+ DEV-049: Add cache for ad requests. Create AdForm - DTO for Ad entity;
+
+ DEV-050: Add pagination for main screen;
