@@ -1,6 +1,7 @@
 package enums;
 
 public enum RedirectPath {
+    HEAD_PATH ("olx_war"),
     MAIN_PAGE("/olx_war/main"),
     MAIN_REDIRECT("main"),
     LOGIN_PAGE("/olx_war/auth"),

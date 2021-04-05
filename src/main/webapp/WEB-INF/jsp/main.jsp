@@ -152,7 +152,7 @@
                     <td><h2>${adTop.price}</h2> <h4>USD</h4></td>
                     <td>${adTop.descr}</td>
                     <td>
-                        <img src="olx_war/adImage/imageDisplay?adId=${adTop.id}" width="120" height="80" alt="No image" />
+                        <img src="${pathHead}/adImage/imageDisplay?adId=${adTop.id}" width="120" height="80" alt="No image" />
 
                     </td>
                     <td>
@@ -211,7 +211,8 @@
             <td><h2>${ad.price}</h2> <h4>USD</h4></td>
             <td>${ad.descr}</td>
             <td>
-                <img src="olx_war/adImage/imageDisplay?adId=${ad.id}" width="120" height="80" alt="No image" />
+
+                <img src="${pathHead}/adImage/imageDisplay?adId=${ad.id}" width="120" height="80" alt="No image" />
             </td>
             <td>
                 <a href='main?type=${ad.city}'>
