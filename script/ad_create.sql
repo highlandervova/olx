@@ -34,4 +34,4 @@ ALTER TABLE public.ad drop column pic;
 
 ALTER TABLE public.ad RENAME COLUMN pictypeNew to pictype;
 
-ALTER TABLE public.AD ADD picture bytea;
+ALTER TABLE public.AD ADD COLUMN picture bytea;
